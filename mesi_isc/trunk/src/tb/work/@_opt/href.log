@@ -1,0 +1,3 @@
+BEGIN 1:mesi_isc_basic_fifo:fast:work
+    entry :  1:mesi_isc_tb:fast:work
+END 
