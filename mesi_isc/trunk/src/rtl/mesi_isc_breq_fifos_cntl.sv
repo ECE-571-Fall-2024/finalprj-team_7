@@ -71,7 +71,7 @@ assign broad_fifo_wr_o = |fifo_rd_array_o[3:0]; // Write to the broad fifo is
 //  2 -> 3 -> 0 -> 1. The breq is sent from the first breq fifo, in that order,
 // that has a valid breq.
 // The priority is change whenever a breq is sent to the broad fifo  
-always @(posedge clk or posedge rst)
+always_ff @(posedge clk or posedge rst)
  if (rst)
    fifos_priority <= 1;
  else if (broad_fifo_wr_o)
@@ -154,7 +154,7 @@ assign fifo_wr_array_o[3:0] = mbus_ack_array[3:0];
 // The acknowledge is sent to the mbus when the breq can be stored in the fifo.
 // The acknowledge can't be asserted for more then one cycle for simplification
 // of the protocol and timing paths. 
-always @(posedge clk or posedge rst)
+always_ff @(posedge clk or posedge rst)
   if (rst)
      mbus_ack_array[3:0] <= 0;
   else
@@ -191,7 +191,7 @@ assign mbus_cmd_array_i_0[MBUS_CMD_WIDTH-1:0] =
 // Mbus: Write broadcast - breq type: wr
 // Mbus: Read broadcast  - breq type: rd
 // Mbus: else            - breq type: nop
-always @(posedge clk or posedge rst)
+always_ff @(posedge clk or posedge rst)
  if (rst)
    breq_type_array_o[4*BROAD_TYPE_WIDTH-1:0] <= 0;
  else begin 
@@ -263,7 +263,7 @@ assign breq_id_array_o[(0+1)*BROAD_ID_WIDTH-1 : 0*BROAD_ID_WIDTH] =
                                    {breq_id_base[BROAD_ID_WIDTH-3 : 0], 2'b11};
 							       
 // The least significant bits of breq_id_base are always 0
-always @(posedge clk or posedge rst)
+always_ff @(posedge clk or posedge rst)
  if (rst)
    breq_id_base[BROAD_ID_WIDTH-3 : 0] <= 0;
  else if (|fifo_wr_array_o)

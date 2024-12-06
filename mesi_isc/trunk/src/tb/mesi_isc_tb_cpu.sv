@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 
 // Include necessary define files
-`include "mesi_isc_define.sv"
-`include "mesi_isc_tb_define.sv"
+`include "../src/rtl/mesi_isc_define.sv"
+`include "../src/tb/mesi_isc_tb_define.sv"
 
 module mesi_isc_tb_cpu #(parameter CBUS_CMD_WIDTH = 3,
     parameter ADDR_WIDTH = 32,
@@ -531,9 +531,6 @@ always @(posedge clk or posedge rst)
             mbus_addr_o       <= c_addr;
         if (mbus_ack_i)     
         begin
-            // A write data to a line contains the incremental data to the
-            // related word of the data, depends on the cpu_id_i (word 0 for CPU
-            // 0, etc.)
             cache[m_addr]       <= mbus_data_i;
             cache_state[m_addr] <= `MESI_ISC_TB_CPU_MESI_S;
             c_state             <= `MESI_ISC_TB_CPU_C_STATE_WR_CACHE;
@@ -543,12 +540,12 @@ always @(posedge clk or posedge rst)
 
     `MESI_ISC_TB_CPU_C_STATE_RD_LINE_RD:
     //----------------------------------
-    // Read a line from memory and then go back to IDLE.
+
       begin
 `ifdef messages
         $display("Message: check err 5. time:%d",$time);
 `endif               
-        // EN_RD means that the line is not valid in the cache
+        
         if (rd_proc_wait_for_en != 1 |
             rd_proc_addr      != c_addr)
         begin
@@ -565,9 +562,7 @@ always @(posedge clk or posedge rst)
             mbus_addr_o       <= c_addr;
         if (mbus_ack_i)     
         begin
-            // A write data to a line contains the incremental data to the
-            // related word of the data, depends on the cpu_id_i (word 0 for CPU
-            // 0, etc.)
+            
             mbus_cmd_o        <= `MESI_ISC_MBUS_CMD_NOP;
             cache[m_addr]     <= mbus_data_i;
             cache_state[m_addr] <= `MESI_ISC_TB_CPU_MESI_S;
@@ -581,9 +576,7 @@ always @(posedge clk or posedge rst)
     `MESI_ISC_TB_CPU_C_STATE_WR_CACHE:
     //----------------------------------
     begin
-      // A write data to a line contains the incremental data to the
-      // related word of the data, depends on the cpu_id_i (word 0 for CPU
-      // 0, etc.)
+
       case (cpu_id_i)
         0: cache[m_addr][ 7 :0] <= wr_data[m_addr];
         1: cache[m_addr][15: 8] <= wr_data[m_addr];

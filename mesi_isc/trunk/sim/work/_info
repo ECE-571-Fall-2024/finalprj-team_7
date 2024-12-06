@@ -1,0 +1,240 @@
+m255
+K4
+z2
+!s99 nomlopt
+!s11f vlog 2021.3_1 2021.08, Aug 15 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/u/lakki/finalprj-team_7/mesi_isc/trunk/sim
+T_opt
+!s110 1733476080
+V0`IfG4dm6kK<hfbb^_a5^0
+04 11 4 work mesi_isc_tb fast 0
+=1-5254006cf05e-6752beef-8f1ac-11de
+!s124 OEM100
+o-quiet -auto_acc_if_foreign -work work -debugdb +acc
+Z1 tCvgOpt 0
+n@_opt
+OL;O;2021.3_1;73
+vmesi_isc
+Z2 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+DXx4 work 12 mesi_isc_pkg 0 22 0ja134PMU<I;;87FGf5_P1
+Z3 !s110 1733476068
+!i10b 1
+!s100 D02mJ4EgJ0Qo2HaB]44G13
+IPN3A]OZ53365M3Ii6Cg;>1
+S1
+R0
+Z4 w1733476066
+Z5 8/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc.sv
+Z6 F/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc.sv
+!i122 48
+L0 17 120
+Z7 VDg1SIo80bB@j0V0VzS_@n1
+Z8 OL;L;2021.3_1;73
+r1
+!s85 0
+31
+Z9 !s108 1733476068.000000
+Z10 !s107 ../src/rtl/mesi_isc_define.sv|/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc.sv|
+Z11 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc.sv|
+!i113 0
+Z12 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vmesi_isc_basic_fifo
+R2
+R3
+!i10b 1
+!s100 =3WMVzZ@kF`Kio1fme8jm2
+IQ7bj5h@D[HGHJNUL69QT<3
+S1
+R0
+w1733475778
+8/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_basic_fifo.sv
+F/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_basic_fifo.sv
+!i122 49
+L0 3 122
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 ../src/rtl/mesi_isc_define.sv|/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_basic_fifo.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_basic_fifo.sv|
+!i113 0
+R12
+R1
+vmesi_isc_breq_fifos
+R2
+Z13 !s110 1733476069
+!i10b 1
+!s100 Mff@Enjh>98jZJ11ahFM>0
+I:71KXJIA@f<5>S;>a:z::3
+S1
+R0
+w1733475793
+8/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_breq_fifos.sv
+F/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_breq_fifos.sv
+!i122 50
+L0 3 102
+R7
+R8
+r1
+!s85 0
+31
+Z14 !s108 1733476069.000000
+!s107 ../src/rtl/mesi_isc_define.sv|/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_breq_fifos.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_breq_fifos.sv|
+!i113 0
+R12
+R1
+vmesi_isc_breq_fifos_cntl
+R2
+R13
+!i10b 1
+!s100 fLCQAOF0jlze9PEd7GFeA2
+ImOH:<SRzY02hOn@]_D?cH2
+S1
+R0
+w1733475828
+8/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_breq_fifos_cntl.sv
+F/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_breq_fifos_cntl.sv
+!i122 51
+L0 12 263
+R7
+R8
+r1
+!s85 0
+31
+R14
+!s107 ../src/rtl/mesi_isc_define.sv|/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_breq_fifos_cntl.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_breq_fifos_cntl.sv|
+!i113 0
+R12
+R1
+vmesi_isc_broad
+R2
+R13
+!i10b 1
+!s100 k`[_O?3jl0DIVhYeg6@3f0
+IfZnmW1EN;WcdIcfkMhmH>1
+S1
+R0
+w1733475859
+8/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_broad.sv
+F/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_broad.sv
+!i122 52
+L0 3 72
+R7
+R8
+r1
+!s85 0
+31
+R14
+!s107 ../src/rtl/mesi_isc_define.sv|/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_broad.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_broad.sv|
+!i113 0
+R12
+R1
+vmesi_isc_broad_cntl
+R2
+R13
+!i10b 1
+!s100 5g3HW;Yj>DALMe[9MeK9H3
+I>n7`THSfDiF:U38Q>2XTS1
+S1
+R0
+w1733475878
+8/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_broad_cntl.sv
+F/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_broad_cntl.sv
+!i122 53
+L0 3 132
+R7
+R8
+r1
+!s85 0
+31
+R14
+!s107 ../src/rtl/mesi_isc_define.sv|/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_broad_cntl.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_broad_cntl.sv|
+!i113 0
+R12
+R1
+Xmesi_isc_pkg
+R2
+R3
+!i10b 1
+!s100 ;V_<n[7Ck?`4Nb:2EL1UK1
+I0ja134PMU<I;;87FGf5_P1
+S1
+R0
+R4
+R5
+R6
+!i122 48
+L0 4 0
+V0ja134PMU<I;;87FGf5_P1
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R1
+vmesi_isc_tb
+R2
+!s110 1733476079
+!i10b 1
+!s100 aSAY[CK==4PWCldg=fQ7n1
+IEPUKQ^TJ`S@];HjG=b1F60
+S1
+R0
+w1733475897
+8mesi_isc_tb.sv
+Fmesi_isc_tb.sv
+!i122 56
+L0 3 456
+R7
+R8
+r1
+!s85 0
+31
+!s108 1733476078.000000
+!s107 ../src/tb/mesi_isc_tb_define.sv|../src/rtl/mesi_isc_define.sv|mesi_isc_tb.sv|
+!s90 -reportprogress|300|+define+DEBUG|mesi_isc_tb.sv|
+!i113 0
+o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+!s92 +define+DEBUG -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vmesi_isc_tb_cpu
+R2
+!s110 1733476070
+!i10b 1
+!s100 X5NZb8]XRQ=d6<A;FziNW0
+IV4j<P[TjGC;08D[3CAG?72
+S1
+R0
+w1733475919
+8/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_tb_cpu.sv
+F/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_tb_cpu.sv
+!i122 55
+L0 7 589
+R7
+R8
+r1
+!s85 0
+31
+!s108 1733476070.000000
+!s107 ../src/tb/mesi_isc_tb_define.sv|../src/rtl/mesi_isc_define.sv|/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_tb_cpu.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/lakki/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_tb_cpu.sv|
+!i113 0
+R12
+R1
