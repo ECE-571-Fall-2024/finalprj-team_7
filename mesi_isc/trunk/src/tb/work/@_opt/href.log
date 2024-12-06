@@ -1,3 +1,6 @@
 BEGIN 1:mesi_isc_basic_fifo:fast:work
     entry :  1:mesi_isc_tb:fast:work
 END 
+BEGIN 1:mesi_isc_tb_cpu:fast:work
+    cache_state :  1:mesi_isc_tb:fast:work
+END 

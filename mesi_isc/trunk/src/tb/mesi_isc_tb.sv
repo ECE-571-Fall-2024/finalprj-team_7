@@ -1,5 +1,5 @@
-`include "../rtl/mesi_isc_define.sv"
-`include "../tb/mesi_isc_tb_define.sv"
+`include "mesi_isc_define.sv"
+`include "mesi_isc_tb_define.sv"
 module mesi_isc_tb;
 
 parameter CBUS_CMD_WIDTH = 3;
@@ -27,7 +27,7 @@ logic [7:0] mbus_data_rd_word_array [3:0];       // Bus data read in words
 logic [DATA_WIDTH-1:0]  mbus_data_rd;
 //logic cbus_ack[3:0]; // Coherence bus acknowledges
 logic cbus_ack3,cbus_ack2,cbus_ack1,cbus_ack0 ;
-
+logic [3:0]temp [3:0];
 logic [ADDR_WIDTH-1:0] cbus_addr;                // Coherence bus address
 //logic [CBUS_CMD_WIDTH-1:0] cbus_cmd[3:0]; // Coherence bus commands
 logic [CBUS_CMD_WIDTH-1:0] cbus_cmd3,cbus_cmd2,cbus_cmd1,cbus_cmd0;
@@ -54,7 +54,7 @@ logic [7:0] stimulus_nop_period;
 
 integer cur_stimulus_cpu;
 
-// For debug in GTKwave
+
 wire   [ADDR_WIDTH+BROAD_TYPE_WIDTH+2+BROAD_ID_WIDTH-1:0] broad_fifo_entry[4];
 
 integer i, j, k, l, m, n, p;
@@ -110,8 +110,12 @@ always_ff @(posedge clk or posedge rst) begin
         stat_cpu_access_wr <= '{default:'0};
     end else begin
         for (p = 0; p < 4; p++) begin
-            if (tb_ins_ack[p]) begin
-                case (tb_ins_array[p])
+
+            if (tb_ins_ack[p])
+ begin
+temp =$past(tb_ins_array,1);
+//$display("temp= %p, tb_ins_array[%d]= %d", temp,p,$past(tb_ins_array[p],1));
+                case (temp[p])
                     `MESI_ISC_TB_INS_NOP:
                         stat_cpu_access_nop[p]++;
                     `MESI_ISC_TB_INS_WR:
@@ -124,7 +128,7 @@ always_ff @(posedge clk or posedge rst) begin
     end
 end
 
-// Clock generation and reset handling
+// Clock generation 
 //=====================================
 always #50 clk = ~clk;
 
@@ -133,8 +137,9 @@ always #50 clk = ~clk;
 initial
 begin
   // Reset the memory
-  for (j = 0; j < 10; j = j + 1)
+foreach (mem[j]) begin
     mem[j] = 0;
+end
   clk = 1;
   rst = 1;
   repeat (10) @(negedge clk);
@@ -172,7 +177,7 @@ initial begin
     $dumpvars(0, mesi_isc_tb);
 end
 // Sanity check tasks
-/*  task automatic sanity_check_rule1_rule2(
+  task automatic sanity_check_rule1_rule2(
     input logic [3:0] cpu_id,
     input logic [ADDR_WIDTH-1:0] mbus_addr,
     input logic [DATA_WIDTH-1:0] mbus_wr_data
@@ -244,44 +249,8 @@ end
                $time);
       @(negedge clk) $finish;
     end
-  endtask */
-  // Error state monitoring
- /* `ifdef mesi_isc_debug
-  always @(mesi_isc.mesi_isc_breq_fifos.fifo_3.dbg_fifo_overflow or
-         mesi_isc.mesi_isc_breq_fifos.fifo_3.dbg_fifo_underflow or
-         mesi_isc.mesi_isc_breq_fifos.fifo_2.dbg_fifo_overflow or
-         mesi_isc.mesi_isc_breq_fifos.fifo_2.dbg_fifo_underflow or
-         mesi_isc.mesi_isc_breq_fifos.fifo_1.dbg_fifo_overflow or
-         mesi_isc.mesi_isc_breq_fifos.fifo_1.dbg_fifo_underflow or
-         mesi_isc.mesi_isc_breq_fifos.fifo_0.dbg_fifo_overflow or
-         mesi_isc.mesi_isc_breq_fifos.fifo_0.dbg_fifo_underflow or
-         mesi_isc.mesi_isc_broad.broad_fifo.dbg_fifo_overflow or
-         mesi_isc.mesi_isc_broad.broad_fifo.dbg_fifo_underflow)
-if (mesi_isc.mesi_isc_breq_fifos.fifo_3.dbg_fifo_overflow  |
-    mesi_isc.mesi_isc_breq_fifos.fifo_3.dbg_fifo_underflow |
-    mesi_isc.mesi_isc_breq_fifos.fifo_2.dbg_fifo_overflow  |
-    mesi_isc.mesi_isc_breq_fifos.fifo_2.dbg_fifo_underflow |
-    mesi_isc.mesi_isc_breq_fifos.fifo_1.dbg_fifo_overflow  |
-    mesi_isc.mesi_isc_breq_fifos.fifo_1.dbg_fifo_underflow |
-    mesi_isc.mesi_isc_breq_fifos.fifo_0.dbg_fifo_overflow  |
-    mesi_isc.mesi_isc_breq_fifos.fifo_0.dbg_fifo_underflow |
-    mesi_isc.mesi_isc_broad.broad_fifo.dbg_fifo_overflow   |
-    mesi_isc.mesi_isc_broad.broad_fifo.dbg_fifo_underflow)
-  begin
-    $display("ERROR 8. Fifo overflow or underflow\n");
-    $display("mesi_isc.mesi_isc_breq_fifos.fifo_3.dbg_fifo_overflow = %h,mesi_isc.mesi_isc_breq_fifos.fifo_3.dbg_fifo_underflow = %h,    mesi_isc.mesi_isc_breq_fifos.fifo_2.dbg_fifo_overflow = %h,    mesi_isc.mesi_isc_breq_fifos.fifo_2.dbg_fifo_underflow = %h,    mesi_isc.mesi_isc_breq_fifos.fifo_1.dbg_fifo_overflow = %h,    mesi_isc.mesi_isc_breq_fifos.fifo_1.dbg_fifo_underflow = %h,    mesi_isc.mesi_isc_breq_fifos.fifo_0.dbg_fifo_overflow = %h,    mesi_isc.mesi_isc_breq_fifos.fifo_0.dbg_fifo_underflow = %h,    mesi_isc.mesi_isc_broad.broad_fifo.dbg_fifo_overflow = %h,    mesi_isc.mesi_isc_broad.broad_fifo.dbg_fifo_underflow = %h",    mesi_isc.mesi_isc_breq_fifos.fifo_3.dbg_fifo_overflow,
-    mesi_isc.mesi_isc_breq_fifos.fifo_3.dbg_fifo_underflow,
-    mesi_isc.mesi_isc_breq_fifos.fifo_2.dbg_fifo_overflow,
-    mesi_isc.mesi_isc_breq_fifos.fifo_2.dbg_fifo_underflow,
-    mesi_isc.mesi_isc_breq_fifos.fifo_1.dbg_fifo_overflow,
-    mesi_isc.mesi_isc_breq_fifos.fifo_1.dbg_fifo_underflow,
-    mesi_isc.mesi_isc_breq_fifos.fifo_0.dbg_fifo_overflow,
-    mesi_isc.mesi_isc_breq_fifos.fifo_0.dbg_fifo_underflow,
-    mesi_isc.mesi_isc_broad.broad_fifo.dbg_fifo_overflow,
-    mesi_isc.mesi_isc_broad.broad_fifo.dbg_fifo_underflow);
-    $finish();
-  end
-  `endif */
+  endtask
+
 
 // Memory access simulation logic.
 //=================================
@@ -306,9 +275,9 @@ always @(posedge clk or posedge rst)
       if (mbus_cmd_array[cpu_priority+i] == `MESI_ISC_MBUS_CMD_WR)
       // WR
       begin
-                    /* sanity_check_rule1_rule2(cpu_selected,
+                     sanity_check_rule1_rule2(cpu_selected,
                                             mbus_addr_array[cpu_priority+i],
-                                            mbus_data_wr_array[cpu_priority+i]); */
+                                            mbus_data_wr_array[cpu_priority+i]);
                      mem[mbus_addr_array[cpu_priority+i]] =
                                            mbus_data_wr_array[cpu_priority+i];
       end
@@ -372,9 +341,7 @@ mesi_isc #(CBUS_CMD_WIDTH,
     );
 
 // CPU testbench modules
-//genvar ack;
-//generate
-//    for (ack = 0; ack < 4; ack++) begin : gen_cpu_tb
+
         mesi_isc_tb_cpu #(
             .CBUS_CMD_WIDTH(CBUS_CMD_WIDTH),
             .ADDR_WIDTH(ADDR_WIDTH),
@@ -487,7 +454,5 @@ mesi_isc #(CBUS_CMD_WIDTH,
             .tb_ins_ack_o(tb_ins_ack[0])
         );
         
-//    end
-//endgenerate
 
 endmodule

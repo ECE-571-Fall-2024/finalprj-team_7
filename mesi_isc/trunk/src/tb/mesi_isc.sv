@@ -1,15 +1,29 @@
 `include "mesi_isc_define.sv"
 
+// Define a package for common types and parameters
+package mesi_isc_pkg;
+    parameter CBUS_CMD_WIDTH = 3;
+    parameter ADDR_WIDTH = 32;
+    parameter BROAD_TYPE_WIDTH = 2;
+    parameter BROAD_ID_WIDTH = 5;
+    parameter BROAD_REQ_FIFO_SIZE = 4;
+    parameter BROAD_REQ_FIFO_SIZE_LOG2 = 2;
+    parameter MBUS_CMD_WIDTH = 3;
+    parameter BREQ_FIFO_SIZE = 2;
+    parameter BREQ_FIFO_SIZE_LOG2 = 1;
+
+endpackage
+
 module mesi_isc #(
-    parameter CBUS_CMD_WIDTH = 3,
-    parameter ADDR_WIDTH = 32,
-    parameter BROAD_TYPE_WIDTH = 2,
-    parameter BROAD_ID_WIDTH = 5,
-    parameter BROAD_REQ_FIFO_SIZE = 4,
-    parameter BROAD_REQ_FIFO_SIZE_LOG2 = 2,
-    parameter MBUS_CMD_WIDTH = 3,
-    parameter BREQ_FIFO_SIZE = 2,
-    parameter BREQ_FIFO_SIZE_LOG2 = 1
+    parameter CBUS_CMD_WIDTH = mesi_isc_pkg::CBUS_CMD_WIDTH,
+    parameter ADDR_WIDTH = mesi_isc_pkg::ADDR_WIDTH,
+    parameter BROAD_TYPE_WIDTH = mesi_isc_pkg::BROAD_TYPE_WIDTH,
+    parameter BROAD_ID_WIDTH = mesi_isc_pkg::BROAD_ID_WIDTH,
+    parameter BROAD_REQ_FIFO_SIZE = mesi_isc_pkg::BROAD_REQ_FIFO_SIZE,
+    parameter BROAD_REQ_FIFO_SIZE_LOG2 = mesi_isc_pkg::BROAD_REQ_FIFO_SIZE_LOG2,
+    parameter MBUS_CMD_WIDTH = mesi_isc_pkg::MBUS_CMD_WIDTH,
+    parameter BREQ_FIFO_SIZE = mesi_isc_pkg::BREQ_FIFO_SIZE,
+    parameter BREQ_FIFO_SIZE_LOG2 = mesi_isc_pkg::BREQ_FIFO_SIZE_LOG2
 ) (
     // Inputs
     input logic clk,  // System clock
@@ -39,6 +53,9 @@ module mesi_isc #(
     output logic mbus_ack1_o,                      // Main bus1 acknowledge
     output logic mbus_ack0_o                       // Main bus0 acknowledge
 );
+
+
+import mesi_isc_pkg::*;
 
 // Regs & wires
 logic broad_fifo_wr;

@@ -12,91 +12,92 @@ Z0 !s99 nomlopt
 cModel Technology
 Z1 d/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb
 T_opt
-!s110 1733046755
-Vn4ijQ@kXL21f0;9QmC8zV3
+!s110 1733474012
+VGia6KhMGF>FOknJMBo@o:2
 04 11 4 work mesi_isc_tb fast 0
-=1-5254006cf05e-674c31e2-363cc-6ece
+=1-5254006cf05e-6752b6db-93847-302
 R0
 !s12f OEM100
 !s12b OEM100
 !s124 OEM100
 !s135 nogc
-o-quiet -auto_acc_if_foreign -work work +acc
+o-quiet -auto_acc_if_foreign -work work -debugdb +acc
 Z2 tCvgOpt 0
 n@_opt
 OL;O;2024.2;79
 vmesi_isc
-2/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc.sv
-Z3 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z4 !s110 1733046053
+Z3 2/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc.sv
+Z4 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+DXx4 work 12 mesi_isc_pkg 0 22 c3R7[:5E5lf=<BTc6gMWg2
+Z5 !s110 1733473991
 !i10b 1
-!s100 6LQb];QN>OL349Ken>4iS0
-IRcXFcfF9=Go<HAeX5nGdH3
+!s100 >N@3QHgfAUC[MG9To=@DV2
+IoPga>;C@DZ<aoXDoiUfIA1
 S1
 R1
-w1733044019
-8/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc.sv
-F/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc.sv
-Z5 8mesi_isc_define.sv
-Z6 Fmesi_isc_define.sv
-!i122 2
-L0 3 117
-Z7 VDg1SIo80bB@j0V0VzS_@n1
-Z8 OL;L;2024.2;79
+Z6 w1733472502
+Z7 8/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc.sv
+Z8 F/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc.sv
+Z9 8mesi_isc_define.sv
+Z10 Fmesi_isc_define.sv
+!i122 13
+L0 17 120
+Z11 VDg1SIo80bB@j0V0VzS_@n1
+Z12 OL;L;2024.2;79
 r1
 !s85 0
 31
-Z9 !s108 1733046052.000000
-!s107 mesi_isc_define.sv|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc.sv|
+Z13 !s108 1733473991.000000
+Z14 !s107 mesi_isc_define.sv|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc.sv|
+Z15 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc.sv|
 !i113 0
-Z10 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z16 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R2
 vmesi_isc_basic_fifo
 2/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_basic_fifo.sv
-R3
 R4
+R5
 !i10b 1
-!s100 objM0MQ5AJi_gOA47TAcT3
-I<MX=dOaV5FUOVG3oFQ2>80
+!s100 W;G]hhzmPz_a^QDFDo4:?2
+IGe8DkI`Rfk?c]i=G;kRCE0
 S1
 R1
-w1733042962
+w1733473941
 8/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_basic_fifo.sv
 F/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_basic_fifo.sv
-Z11 8../rtl/mesi_isc_define.sv
-Z12 F../rtl/mesi_isc_define.sv
-!i122 3
-L0 3 159
-R7
-R8
+R9
+R10
+!i122 14
+L0 3 122
+R11
+R12
 r1
 !s85 0
 31
-Z13 !s108 1733046053.000000
-!s107 ../rtl/mesi_isc_define.sv|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_basic_fifo.sv|
+R13
+!s107 mesi_isc_define.sv|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_basic_fifo.sv|
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_basic_fifo.sv|
 !i113 0
-R10
+R16
 R2
 vmesi_isc_breq_fifos
 2/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_breq_fifos.sv
-R3
 R4
+R5
 !i10b 1
-!s100 M0L`X?9VaaJIMb`QR_M7P3
-I1kTaRF]51WfCID2Z8FENc1
+!s100 Zm`EA@9iWa@kN=JX[R0?g2
+I<S<Q]o@d51BHeSzgzjG@V3
 S1
 R1
-w1733044096
+R6
 8/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_breq_fifos.sv
 F/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_breq_fifos.sv
-R5
-R6
-!i122 4
-L0 68 300
-R7
-R8
+R9
+R10
+!i122 15
+L0 3 102
+R11
+R12
 r1
 !s85 0
 31
@@ -104,26 +105,26 @@ R13
 !s107 mesi_isc_define.sv|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_breq_fifos.sv|
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_breq_fifos.sv|
 !i113 0
-R10
+R16
 R2
 vmesi_isc_breq_fifos_cntl
 2/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_breq_fifos_cntl.sv
-R3
 R4
+Z17 !s110 1733473992
 !i10b 1
-!s100 _DiW0cG=EhBWL^;EjH5LC0
-Ik[cK683QF?OS3ek@akYB13
+!s100 blOhNG2XeTD1nYR4GeQXm3
+IAC72k[WJ5TN7=5PjFF>JF0
 S1
 R1
-w1733044165
+R6
 8/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_breq_fifos_cntl.sv
 F/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_breq_fifos_cntl.sv
-R5
-R6
-!i122 5
+R9
+R10
+!i122 16
 L0 12 263
-R7
-R8
+R11
+R12
 r1
 !s85 0
 31
@@ -131,139 +132,141 @@ R13
 !s107 mesi_isc_define.sv|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_breq_fifos_cntl.sv|
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_breq_fifos_cntl.sv|
 !i113 0
-R10
+R16
 R2
 vmesi_isc_broad
 2/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_broad.sv
-R3
-Z14 !s110 1733046054
+R4
+R17
 !i10b 1
-!s100 =TVGMY0Ron=[Pk^nmC2aX1
-IW6Eg3U?CM_>>KQN^8Oh`Q2
+!s100 0Qk3>Z@EZEVFb38Cz@A?A2
+ITmSOK9Wl02n[eYFhB:@ab3
 S1
 R1
-w1733044216
+R6
 8/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_broad.sv
 F/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_broad.sv
-R5
+R9
+R10
+!i122 17
+L0 3 72
+R11
+R12
+r1
+!s85 0
+31
+Z18 !s108 1733473992.000000
+!s107 mesi_isc_define.sv|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_broad.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_broad.sv|
+!i113 0
+R16
+R2
+vmesi_isc_broad_cntl
+2/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_broad_cntl.sv
+R4
+R17
+!i10b 1
+!s100 [c]K]CNQmh@Pgh]`bi?jX3
+Iz[O<l6_M>C;MGHfEaSkIO1
+S1
+R1
 R6
-!i122 6
-L0 3 95
+8/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_broad_cntl.sv
+F/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_broad_cntl.sv
+R9
+R10
+!i122 18
+L0 3 132
+R11
+R12
+r1
+!s85 0
+31
+R18
+!s107 mesi_isc_define.sv|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_broad_cntl.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_broad_cntl.sv|
+!i113 0
+R16
+R2
+Xmesi_isc_pkg
+R3
+R4
+R5
+!i10b 1
+!s100 A3o6>1gDS=SX9d]507;N=1
+Ic3R7[:5E5lf=<BTc6gMWg2
+S1
+R1
+R6
 R7
 R8
+R9
+R10
+!i122 13
+L0 4 0
+Vc3R7[:5E5lf=<BTc6gMWg2
+R12
 r1
 !s85 0
 31
 R13
-!s107 mesi_isc_define.sv|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_broad.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_broad.sv|
-!i113 0
-R10
-R2
-vmesi_isc_broad_cntl
-2/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_broad_cntl.sv
-R3
 R14
-!i10b 1
-!s100 55>0=Te4fUl8?;XQOzikj2
-Ig1aT_LdjDZhUH3LC_UIY:2
-S1
-R1
-w1733043862
-8/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_broad_cntl.sv
-F/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_broad_cntl.sv
-R5
-R6
-!i122 7
-L0 3 182
-R7
-R8
-r1
-!s85 0
-31
-!s108 1733046054.000000
-!s107 mesi_isc_define.sv|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_broad_cntl.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_broad_cntl.sv|
+R15
 !i113 0
-R10
+R16
 R2
 vmesi_isc_tb
-2/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_tb.sv
-R3
-!s110 1733046736
+2mesi_isc_tb.sv
+R4
+!s110 1733474010
 !i10b 1
-!s100 5??ea`A^;GGXAL>PBge5P3
-Im0mAhiV;1>I]>OO^<81:]0
+!s100 OX1@?5X=l>H1hijaZD3`[0
+IZJ>;>aAI7o?Be:i2Q:z?80
 S1
 R1
-w1733046723
-8/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_tb.sv
-F/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_tb.sv
+w1733473988
+8mesi_isc_tb.sv
+Fmesi_isc_tb.sv
+R9
+R10
+!i122 21
+L0 3 456
 R11
 R12
-!i122 10
-L0 3 491
-R7
-R8
 r1
 !s85 0
 31
-!s108 1733046736.000000
-!s107 ../tb/mesi_isc_tb_define.sv|../rtl/mesi_isc_define.sv|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_tb.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_tb.sv|
+!s108 1733474010.000000
+!s107 mesi_isc_tb_define.sv|mesi_isc_define.sv|mesi_isc_tb.sv|
+!s90 -reportprogress|300|+define+DEBUG|mesi_isc_tb.sv|
 !i113 0
-R10
+o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+!s92 +define+DEBUG -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R2
 vmesi_isc_tb_cpu
 2/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_tb_cpu.sv
-R3
-!s110 1733046052
+R4
+!s110 1733473993
 !i10b 1
-!s100 hQdBh5SdKlNKVMQidP=e_2
-IQVOEmVPjWhU8Af1@F_k7D2
+!s100 ZHmz1eYShdhWFQ9jo@^b71
+IEQ_DEg]dgJfXd]A=[18P91
 S1
 R1
-w1733019927
+w1733472509
 8/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_tb_cpu.sv
 F/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_tb_cpu.sv
-R5
-R6
-!i122 1
-L0 7 596
-R7
-R8
+R9
+R10
+!i122 20
+L0 7 589
+R11
+R12
 r1
 !s85 0
 31
-R9
+!s108 1733473993.000000
 !s107 mesi_isc_tb_define.sv|mesi_isc_define.sv|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_tb_cpu.sv|
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_tb_cpu.sv|
 !i113 0
-R10
-R2
-Xmesi_isc_tb_sanity_check_sv_unit
-2/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_tb_sanity_check.sv
-R3
-!s110 1733046662
-VkZg7iU[PL7Rz]D1?e>bZG3
-r1
-!s85 0
-!i10b 1
-!s100 @D0cmgk`Qa@>zBg]^7_AB1
-IkZg7iU[PL7Rz]D1?e>bZG3
-!i103 1
-S1
-R1
-w1733046659
-8/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_tb_sanity_check.sv
-F/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_tb_sanity_check.sv
-!i122 9
-L0 6 0
-R8
-31
-!s108 1733046661.000000
-!s107 /u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_tb_sanity_check.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/koushik/ECE571-F24/finalprj-team_7/mesi_isc/trunk/src/tb/mesi_isc_tb_sanity_check.sv|
-!i113 0
-R10
+R16
 R2
