@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 
 // Include necessary define files
-`include "mesi_isc_define.sv"
-`include "mesi_isc_tb_define.sv"
+`include "../src/rtl/mesi_isc_define.sv"
+`include "../src/tb/mesi_isc_tb_define.sv"
 
 module mesi_isc_tb_cpu #(parameter CBUS_CMD_WIDTH = 3,
     parameter ADDR_WIDTH = 32,
