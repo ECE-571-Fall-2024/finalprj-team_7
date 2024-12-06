@@ -1,0 +1,27 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -derate
+        -input_pins
+        -nets
+        -slack_lesser_than 0.0000
+        -max_paths 10000
+        -transition_time
+        -crosstalk_delta
+        -capacitance
+Design : ORCA_TOP
+Version: V-2023.12-SP2
+Date   : Sun May 19 19:50:48 2024
+****************************************
+
+Information: Some cells in the design are using inferred operating conditions.
+
+ * Some/all delay information is back-annotated.
+
+ # A fanout number of 1000 was used for high fanout net computations.
+Wire Load Model Mode: Inactive.
+No paths.
+
+1

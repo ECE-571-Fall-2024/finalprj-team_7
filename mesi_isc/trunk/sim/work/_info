@@ -1,0 +1,272 @@
+m255
+K4
+z2
+!s12c _opt
+Z0 !s99 nomlopt
+!s11f vlog 2024.2 2024.05, May 20 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 d/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim
+T_opt
+!s110 1733476250
+VVlZCk5@m1n9cGG:HeESM^2
+04 11 4 work mesi_isc_tb fast 0
+=1-5254006cf05e-6752bf9a-22256-4025
+R0
+!s12f OEM100
+!s12b OEM100
+!s124 OEM100
+!s135 nogc
+o-quiet -auto_acc_if_foreign -work work -debugdb +acc
+Z2 tCvgOpt 0
+n@_opt
+OL;O;2024.2;79
+vmesi_isc
+Z3 2/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc.sv
+Z4 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+DXx4 work 12 mesi_isc_pkg 0 22 1L9dC`JB=5EO=El3:^lWH1
+Z5 !s110 1733476222
+!i10b 1
+!s100 >N@3QHgfAUC[MG9To=@DV2
+IBbDgNgbl9m:QR>dd6aXOX0
+S1
+R1
+Z6 w1733475154
+Z7 8/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc.sv
+Z8 F/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc.sv
+Z9 8../src/rtl/mesi_isc_define.sv
+Z10 F../src/rtl/mesi_isc_define.sv
+!i122 0
+L0 17 120
+Z11 VDg1SIo80bB@j0V0VzS_@n1
+Z12 OL;L;2024.2;79
+r1
+!s85 0
+31
+Z13 !s108 1733476222.000000
+Z14 !s107 ../src/rtl/mesi_isc_define.sv|/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc.sv|
+Z15 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc.sv|
+!i113 0
+Z16 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vmesi_isc_basic_fifo
+2/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_basic_fifo.sv
+R4
+Z17 !s110 1733476223
+!i10b 1
+!s100 W;G]hhzmPz_a^QDFDo4:?2
+I2j=GQbLaW2K19niO=[;Hn3
+S1
+R1
+w1733475169
+8/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_basic_fifo.sv
+F/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_basic_fifo.sv
+R9
+R10
+!i122 1
+L0 3 122
+R11
+R12
+r1
+!s85 0
+31
+Z18 !s108 1733476223.000000
+!s107 ../src/rtl/mesi_isc_define.sv|/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_basic_fifo.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_basic_fifo.sv|
+!i113 0
+R16
+R2
+vmesi_isc_breq_fifos
+2/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_breq_fifos.sv
+R4
+R17
+!i10b 1
+!s100 Zm`EA@9iWa@kN=JX[R0?g2
+IWH`0M2m0QT4o6;`6EmD]L2
+S1
+R1
+w1733475182
+8/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_breq_fifos.sv
+F/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_breq_fifos.sv
+R9
+R10
+!i122 2
+L0 3 102
+R11
+R12
+r1
+!s85 0
+31
+R18
+!s107 ../src/rtl/mesi_isc_define.sv|/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_breq_fifos.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_breq_fifos.sv|
+!i113 0
+R16
+R2
+vmesi_isc_breq_fifos_cntl
+2/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_breq_fifos_cntl.sv
+R4
+R17
+!i10b 1
+!s100 blOhNG2XeTD1nYR4GeQXm3
+IiM1=7XnEnX<^>3BIfW@Tj1
+S1
+R1
+w1733475193
+8/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_breq_fifos_cntl.sv
+F/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_breq_fifos_cntl.sv
+R9
+R10
+!i122 3
+L0 12 263
+R11
+R12
+r1
+!s85 0
+31
+R18
+!s107 ../src/rtl/mesi_isc_define.sv|/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_breq_fifos_cntl.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_breq_fifos_cntl.sv|
+!i113 0
+R16
+R2
+vmesi_isc_broad
+2/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_broad.sv
+R4
+Z19 !s110 1733476224
+!i10b 1
+!s100 0Qk3>Z@EZEVFb38Cz@A?A2
+IUN<4VK_DP?]j4=db^VDU]0
+S1
+R1
+w1733475205
+8/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_broad.sv
+F/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_broad.sv
+R9
+R10
+!i122 4
+L0 3 72
+R11
+R12
+r1
+!s85 0
+31
+R18
+!s107 ../src/rtl/mesi_isc_define.sv|/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_broad.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_broad.sv|
+!i113 0
+R16
+R2
+vmesi_isc_broad_cntl
+2/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_broad_cntl.sv
+R4
+R19
+!i10b 1
+!s100 [c]K]CNQmh@Pgh]`bi?jX3
+I<<9Az^Z;YJGA]RTFgf2H82
+S1
+R1
+w1733475217
+8/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_broad_cntl.sv
+F/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_broad_cntl.sv
+R9
+R10
+!i122 5
+L0 3 132
+R11
+R12
+r1
+!s85 0
+31
+!s108 1733476224.000000
+!s107 ../src/rtl/mesi_isc_define.sv|/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_broad_cntl.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_broad_cntl.sv|
+!i113 0
+R16
+R2
+Xmesi_isc_pkg
+R3
+R4
+R5
+!i10b 1
+!s100 A3o6>1gDS=SX9d]507;N=1
+I1L9dC`JB=5EO=El3:^lWH1
+S1
+R1
+R6
+R7
+R8
+R9
+R10
+!i122 0
+L0 4 0
+V1L9dC`JB=5EO=El3:^lWH1
+R12
+r1
+!s85 0
+31
+R13
+R14
+R15
+!i113 0
+R16
+R2
+vmesi_isc_tb
+2mesi_isc_tb.sv
+R4
+!s110 1733476249
+!i10b 1
+!s100 OX1@?5X=l>H1hijaZD3`[0
+I`1?CEXX@K7Ed_=0aDTzmd2
+S1
+R1
+w1733475311
+8mesi_isc_tb.sv
+Fmesi_isc_tb.sv
+R9
+R10
+!i122 8
+L0 3 456
+R11
+R12
+r1
+!s85 0
+31
+!s108 1733476249.000000
+!s107 ../src/tb/mesi_isc_tb_define.sv|../src/rtl/mesi_isc_define.sv|mesi_isc_tb.sv|
+!s90 -reportprogress|300|+define+DEBUG|mesi_isc_tb.sv|
+!i113 0
+o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+!s92 +define+DEBUG -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vmesi_isc_tb_cpu
+2/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_tb_cpu.sv
+R4
+!s110 1733476225
+!i10b 1
+!s100 ZHmz1eYShdhWFQ9jo@^b71
+IDc:P2ld_HlHKW];]GIEOS2
+S1
+R1
+w1733475344
+8/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_tb_cpu.sv
+F/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_tb_cpu.sv
+R9
+R10
+!i122 7
+L0 7 589
+R11
+R12
+r1
+!s85 0
+31
+!s108 1733476225.000000
+!s107 ../src/tb/mesi_isc_tb_define.sv|../src/rtl/mesi_isc_define.sv|/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_tb_cpu.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/u/sigicher/finalprj-team_7/mesi_isc/trunk/sim/mesi_isc_tb_cpu.sv|
+!i113 0
+R16
+R2

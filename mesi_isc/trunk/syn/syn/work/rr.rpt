@@ -1,0 +1,82 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : mesi_isc
+Version: L-2016.03-SP3
+Date   : Wed Dec  4 11:27:43 2024
+****************************************
+
+Operating Conditions: ss0p95v125c   Library: saed32rvt_ss0p95v125c
+Wire Load Model Mode: enclosed
+
+  Startpoint: mesi_isc_breq_fifos/fifo_1/status_empty_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: mesi_isc_breq_fifos/fifo_0/data_o_reg_10_
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mesi_isc           16000                 saed32rvt_ss0p95v125c
+  mesi_isc_breq_fifos_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5_BREQ_FIFO_SIZE2_BREQ_FIFO_SIZE_LOG21
+                     8000                  saed32rvt_ss0p95v125c
+  mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5
+                     8000                  saed32rvt_ss0p95v125c
+  mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_0
+                     8000                  saed32rvt_ss0p95v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.10       0.10
+  mesi_isc_breq_fifos/fifo_1/status_empty_reg/CLK (SDFFASX1_RVT)
+                                                          0.00       0.10 r
+  mesi_isc_breq_fifos/fifo_1/status_empty_reg/Q (SDFFASX1_RVT)
+                                                          0.20       0.30 r
+  mesi_isc_breq_fifos/fifo_1/status_empty_o (mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_1)
+                                                          0.00       0.30 r
+  mesi_isc_breq_fifos/mesi_isc_breq_fifos_cntl/fifo_status_empty_array_i[1] (mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5)
+                                                          0.00       0.30 r
+  mesi_isc_breq_fifos/mesi_isc_breq_fifos_cntl/U21/Y (OA22X1_RVT)
+                                                          0.08       0.38 r
+  mesi_isc_breq_fifos/mesi_isc_breq_fifos_cntl/U47/Y (AND2X1_RVT)
+                                                          0.06       0.44 r
+  mesi_isc_breq_fifos/mesi_isc_breq_fifos_cntl/U73/Y (NAND3X0_RVT)
+                                                          0.04       0.48 f
+  mesi_isc_breq_fifos/mesi_isc_breq_fifos_cntl/U74/Y (AO21X1_RVT)
+                                                          0.08       0.56 f
+  mesi_isc_breq_fifos/mesi_isc_breq_fifos_cntl/U14/Y (NAND3X0_RVT)
+                                                          0.03       0.60 r
+  mesi_isc_breq_fifos/mesi_isc_breq_fifos_cntl/U75/Y (AND2X1_RVT)
+                                                          0.07       0.66 r
+  mesi_isc_breq_fifos/mesi_isc_breq_fifos_cntl/fifo_rd_array_o[0] (mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5)
+                                                          0.00       0.66 r
+  mesi_isc_breq_fifos/fifo_0/rd_i (mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_0)
+                                                          0.00       0.66 r
+  mesi_isc_breq_fifos/fifo_0/U148/Y (XOR2X2_RVT)          0.12       0.78 f
+  mesi_isc_breq_fifos/fifo_0/U13/Y (INVX4_RVT)            0.03       0.81 r
+  mesi_isc_breq_fifos/fifo_0/U16/Y (AND2X1_RVT)           0.06       0.87 r
+  mesi_isc_breq_fifos/fifo_0/U164/Y (AO222X1_RVT)         0.13       1.00 r
+  mesi_isc_breq_fifos/fifo_0/data_o_reg_10_/D (SDFFARX1_RVT)
+                                                          0.00       1.00 r
+  data arrival time                                                  1.00
+
+  clock clk (rise edge)                                   1.00       1.00
+  clock network delay (ideal)                             0.10       1.10
+  inter-clock uncertainty                                -0.02       1.08
+  mesi_isc_breq_fifos/fifo_0/data_o_reg_10_/CLK (SDFFARX1_RVT)
+                                                          0.00       1.08 r
+  library setup time                                     -0.12       0.96
+  data required time                                                 0.96
+  --------------------------------------------------------------------------
+  data required time                                                 0.96
+  data arrival time                                                 -1.00
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.04
+
+
+1

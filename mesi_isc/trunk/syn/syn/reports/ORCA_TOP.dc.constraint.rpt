@@ -1,0 +1,476 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : ORCA_TOP
+Version: V-2023.12-SP2
+Date   : Sun May 19 19:35:09 2024
+****************************************
+
+
+   min_delay/hold ('v_PCI_CLK' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   pad_out[0]                   1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[1]                   1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[2]                   1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[3]                   1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[4]                   1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[5]                   1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[6]                   1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[7]                   1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[8]                   1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[9]                   1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[10]                  1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[11]                  1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[12]                  1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[13]                  1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[14]                  1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[15]                  1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[16]                  1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[17]                  1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[18]                  1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[19]                  1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[20]                  1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[21]                  1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[22]                  1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[23]                  1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[24]                  1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[25]                  1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[26]                  1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[27]                  1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[28]                  1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[29]                  1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[30]                  1.50           0.67 f        -0.83  (VIOLATED)
+   pad_out[31]                  1.50           0.67 f        -0.83  (VIOLATED)
+
+
+   max_transition
+
+                             Required        Actual
+   Net                      Transition     Transition        Slack
+   -----------------------------------------------------------------
+   I_SDRAM_TOP/I_SDRAM_IF/n173
+                                0.50           0.84          -0.34  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U1/A
+                                0.50           0.84          -0.34  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U10/A
+                                0.50           0.84          -0.34  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U102/A
+                                0.50           0.84          -0.34  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U196/Y
+                                0.50           0.84          -0.34  (VIOLATED)
+   I_BLENDER_1/n610             0.50           0.61          -0.11  (VIOLATED)
+       PIN :   I_BLENDER_1/U1/A
+                                0.50           0.61          -0.11  (VIOLATED)
+       PIN :   I_BLENDER_1/U98/A
+                                0.50           0.61          -0.11  (VIOLATED)
+       PIN :   I_BLENDER_1/U129/A
+                                0.50           0.61          -0.11  (VIOLATED)
+       PIN :   I_BLENDER_1/U301/A
+                                0.50           0.61          -0.11  (VIOLATED)
+       PIN :   I_BLENDER_1/U800/A
+                                0.50           0.61          -0.11  (VIOLATED)
+       PIN :   I_BLENDER_1/U284/Y
+                                0.50           0.61          -0.11  (VIOLATED)
+   I_BLENDER_1/s2_op2[4]        0.24           0.28          -0.04  (VIOLATED)
+       PIN :   I_BLENDER_1/R_567/Q
+                                0.24           0.28          -0.04  (VIOLATED)
+   I_BLENDER_0/n3723            0.50           0.53          -0.03  (VIOLATED)
+       PIN :   I_BLENDER_0/U82/A
+                                0.50           0.53          -0.03  (VIOLATED)
+       PIN :   I_BLENDER_0/U1862/A3
+                                0.50           0.53          -0.03  (VIOLATED)
+       PIN :   I_BLENDER_0/U2495/A4
+                                0.50           0.53          -0.03  (VIOLATED)
+       PIN :   I_BLENDER_0/U2680/A3
+                                0.50           0.53          -0.03  (VIOLATED)
+       PIN :   I_BLENDER_0/U4562/A4
+                                0.50           0.53          -0.03  (VIOLATED)
+       PIN :   I_BLENDER_0/U4569/A3
+                                0.50           0.53          -0.03  (VIOLATED)
+       PIN :   I_BLENDER_0/U875/Y
+                                0.50           0.53          -0.03  (VIOLATED)
+   I_SDRAM_TOP/I_SDRAM_IF/n179
+                                0.50           0.52          -0.02  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U13/A
+                                0.50           0.52          -0.02  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U96/A
+                                0.50           0.52          -0.02  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U85/A
+                                0.50           0.52          -0.02  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U202/Y
+                                0.50           0.52          -0.02  (VIOLATED)
+   I_SDRAM_TOP/n356             0.50           0.52          -0.02  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO_SD_FIFO_RAM_1/CE1
+                                0.50           0.52          -0.02  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_WRITE_FIFO_SD_FIFO_RAM_0/CE1
+                                0.50           0.52          -0.02  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_READ_FIFO_SD_FIFO_RAM_0/CE2
+                                0.50           0.52          -0.02  (VIOLATED)
+   I_SDRAM_TOP/I_SDRAM_IF/n175
+                                0.50           0.52          -0.02  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U2/A
+                                0.50           0.52          -0.02  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U79/A
+                                0.50           0.52          -0.02  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U83/A
+                                0.50           0.52          -0.02  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U198/Y
+                                0.50           0.52          -0.02  (VIOLATED)
+   I_SDRAM_TOP/I_SDRAM_IF/n174
+                                0.50           0.52          -0.02  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U3/A
+                                0.50           0.52          -0.02  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U20/A
+                                0.50           0.52          -0.02  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U197/Y
+                                0.50           0.52          -0.02  (VIOLATED)
+   I_PCI_TOP/n109               0.28           0.30          -0.02  (VIOLATED)
+       PIN :   I_PCI_TOP/I_PCI_CORE_mega_shift_reg_10__8_/QN
+                                0.28           0.30          -0.02  (VIOLATED)
+   I_PCI_TOP/mult_x_32_n826     0.28           0.30          -0.02  (VIOLATED)
+       PIN :   I_PCI_TOP/I_PCI_CORE_mega_shift_reg_10__17_/QN
+                                0.28           0.30          -0.02  (VIOLATED)
+   I_PCI_TOP/mult_x_25_n813     0.28           0.30          -0.01  (VIOLATED)
+       PIN :   I_PCI_TOP/I_PCI_CORE_mega_shift_reg_3__30_/QN
+                                0.28           0.30          -0.01  (VIOLATED)
+   I_PCI_TOP/mult_x_29_n827     0.28           0.30          -0.01  (VIOLATED)
+       PIN :   I_PCI_TOP/I_PCI_CORE_mega_shift_reg_7__16_/QN
+                                0.28           0.30          -0.01  (VIOLATED)
+   I_BLENDER_0/net23067         0.24           0.25          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/clk_gate_rem_green_reg/latch/GCLK
+                                0.24           0.25          -0.01  (VIOLATED)
+   I_PARSER/n882                0.24           0.25          -0.01  (VIOLATED)
+       PIN :   I_PARSER/i_reg_reg_17_/Q
+                                0.24           0.25          -0.01  (VIOLATED)
+   I_BLENDER_1/n3581            0.31           0.32          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_1/U1070/Y
+                                0.31           0.32          -0.01  (VIOLATED)
+   net_blender_op[3]            0.25           0.27          -0.01  (VIOLATED)
+       PIN :   I_PARSER/out_bus_reg_11_/Q
+                                0.25           0.27          -0.01  (VIOLATED)
+   I_BLENDER_0/n3842            0.25           0.27          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/s3_op2_reg_18_/Q
+                                0.25           0.27          -0.01  (VIOLATED)
+   I_BLENDER_0/s3_op1_16        0.25           0.27          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/s3_op1_reg_16_/Q
+                                0.25           0.27          -0.01  (VIOLATED)
+   I_BLENDER_0/n3854            0.24           0.25          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/s3_op1_reg_18_/Q
+                                0.24           0.25          -0.01  (VIOLATED)
+   I_BLENDER_1/n3373            0.31           0.32          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_1/U926/Y
+                                0.31           0.32          -0.01  (VIOLATED)
+   I_PCI_TOP/mult_x_26_n812     0.28           0.30          -0.01  (VIOLATED)
+       PIN :   I_PCI_TOP/I_PCI_CORE_mega_shift_reg_4__31_/QN
+                                0.28           0.30          -0.01  (VIOLATED)
+   I_PCI_TOP/mult_x_23_n809     0.28           0.30          -0.01  (VIOLATED)
+       PIN :   I_PCI_TOP/I_PCI_CORE_mega_shift_reg_1__2_/QN
+                                0.28           0.30          -0.01  (VIOLATED)
+   I_PCI_TOP/mult_x_23_n827     0.28           0.30          -0.01  (VIOLATED)
+       PIN :   I_PCI_TOP/I_PCI_CORE_mega_shift_reg_1__16_/QN
+                                0.28           0.30          -0.01  (VIOLATED)
+   I_PCI_TOP/mult_x_23_n810     0.28           0.30          -0.01  (VIOLATED)
+       PIN :   I_PCI_TOP/I_PCI_CORE_mega_shift_reg_1__1_/QN
+                                0.28           0.30          -0.01  (VIOLATED)
+   I_BLENDER_1/n3766            0.24           0.25          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_1/s3_op1_reg_17_/Q
+                                0.24           0.25          -0.01  (VIOLATED)
+   I_BLENDER_1/n3800            0.24           0.25          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_1/s3_op1_reg_22_/Q
+                                0.24           0.25          -0.01  (VIOLATED)
+   I_PARSER/n885                0.24           0.25          -0.01  (VIOLATED)
+       PIN :   I_PARSER/i_reg_reg_13_/Q
+                                0.24           0.25          -0.01  (VIOLATED)
+   I_PARSER/i_reg_7_            0.28           0.29          -0.01  (VIOLATED)
+       PIN :   I_PARSER/i_reg_reg_7_/QN
+                                0.28           0.29          -0.01  (VIOLATED)
+   I_BLENDER_0/n3843            0.24           0.25          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/s3_op2_reg_14_/Q
+                                0.24           0.25          -0.01  (VIOLATED)
+   I_BLENDER_0/intadd_86_SUM_8_
+                                0.30           0.31          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/intadd_86_U8/S
+                                0.30           0.31          -0.01  (VIOLATED)
+   I_PCI_TOP/mult_x_27_n820     0.28           0.29          -0.01  (VIOLATED)
+       PIN :   I_PCI_TOP/I_PCI_CORE_mega_shift_reg_5__23_/QN
+                                0.28           0.29          -0.01  (VIOLATED)
+   I_BLENDER_0/intadd_86_SUM_13_
+                                0.30           0.31          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/intadd_86_U3/S
+                                0.30           0.31          -0.01  (VIOLATED)
+   I_BLENDER_1/n3232            0.31           0.32          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_1/U1000/Y
+                                0.31           0.32          -0.01  (VIOLATED)
+   I_BLENDER_1/n3509            0.30           0.31          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_1/U3979/S
+                                0.30           0.31          -0.01  (VIOLATED)
+   I_BLENDER_0/intadd_86_SUM_12_
+                                0.30           0.31          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/intadd_86_U4/S
+                                0.30           0.31          -0.01  (VIOLATED)
+   I_BLENDER_0/intadd_86_SUM_9_
+                                0.30           0.31          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/intadd_86_U7/S
+                                0.30           0.31          -0.01  (VIOLATED)
+   I_BLENDER_0/intadd_86_SUM_10_
+                                0.30           0.31          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/intadd_86_U6/S
+                                0.30           0.31          -0.01  (VIOLATED)
+   I_BLENDER_0/intadd_86_SUM_11_
+                                0.30           0.31          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/intadd_86_U5/S
+                                0.30           0.31          -0.01  (VIOLATED)
+   I_BLENDER_0/s3_op2_29        0.25           0.26          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/s3_op2_reg_29_/Q
+                                0.25           0.26          -0.01  (VIOLATED)
+   I_BLENDER_1/intadd_3_SUM_9_
+                                0.30           0.31          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_1/intadd_3_U3/S
+                                0.30           0.31          -0.01  (VIOLATED)
+   I_RISC_CORE/Oprnd_A[2]       0.09           0.10          -0.01  (VIOLATED)
+       PIN :   I_RISC_CORE/I_DATA_PATH_Oprnd_A_reg_2_/Q
+                                0.09           0.10          -0.01  (VIOLATED)
+   I_PCI_TOP/mult_x_31_n806     0.28           0.29          -0.01  (VIOLATED)
+       PIN :   I_PCI_TOP/I_PCI_CORE_mega_shift_reg_9__5_/QN
+                                0.28           0.29          -0.01  (VIOLATED)
+   I_BLENDER_1/intadd_3_SUM_8_
+                                0.30           0.31          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_1/intadd_3_U4/S
+                                0.30           0.31          -0.01  (VIOLATED)
+   I_BLENDER_1/n3229            0.34           0.35          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_1/U1159/Y
+                                0.34           0.35          -0.01  (VIOLATED)
+   I_PCI_TOP/mult_x_31_n821     0.28           0.29          -0.01  (VIOLATED)
+       PIN :   I_PCI_TOP/I_PCI_CORE_mega_shift_reg_9__22_/QN
+                                0.28           0.29          -0.01  (VIOLATED)
+   I_BLENDER_1/intadd_3_SUM_10_
+                                0.30           0.31          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_1/intadd_3_U2/S
+                                0.30           0.31          -0.01  (VIOLATED)
+   I_BLENDER_0/n3891            0.24           0.25          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/s3_op1_reg_22_/Q
+                                0.24           0.25          -0.01  (VIOLATED)
+   I_BLENDER_1/n4310            0.31           0.32          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_1/U825/Y
+                                0.31           0.32          -0.01  (VIOLATED)
+   I_BLENDER_0/s2_op2[21]       0.28           0.28          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/R_77_IP/QN
+                                0.28           0.28          -0.01  (VIOLATED)
+   I_BLENDER_1/s3_op2[20]       0.25           0.26          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_1/s3_op2_reg_20_/Q
+                                0.25           0.26          -0.01  (VIOLATED)
+   I_BLENDER_1/intadd_3_SUM_4_
+                                0.30           0.30          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_1/intadd_3_U8/S
+                                0.30           0.30          -0.01  (VIOLATED)
+   I_BLENDER_0/n3852            0.26           0.27          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/s3_op1_reg_9_/Q
+                                0.26           0.27          -0.01  (VIOLATED)
+   I_BLENDER_0/n5727            0.25           0.26          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/s3_op2_reg_12_/Q
+                                0.25           0.26          -0.01  (VIOLATED)
+   I_BLENDER_0/intadd_86_SUM_4_
+                                0.30           0.30          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/intadd_86_U12/S
+                                0.30           0.30          -0.01  (VIOLATED)
+   I_SDRAM_TOP/I_SDRAM_IF/n1683
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U542/A3
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U1140/A3
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U1197/A3
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U1400/A3
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U1970/A3
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U1971/A3
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U2075/A3
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U2185/A3
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U2213/A3
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U2426/A3
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U2429/A3
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U2441/A3
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U2810/S0
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U3454/S0
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U3458/S0
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_SDRAM_TOP/I_SDRAM_IF/U540/Y
+                                0.50           0.51          -0.01  (VIOLATED)
+   I_BLENDER_0/n3851            0.25           0.26          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/trans1_reg/Q
+                                0.25           0.26          -0.01  (VIOLATED)
+   I_BLENDER_0/n3412            0.34           0.35          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/U1290/Y
+                                0.34           0.35          -0.01  (VIOLATED)
+   I_BLENDER_1/n3525            0.32           0.33          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_1/U977/Y
+                                0.32           0.33          -0.01  (VIOLATED)
+   I_BLENDER_0/n138             0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/U89/A
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/U2259/A
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/U1960/A
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/U1734/A
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/U1709/A
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/U1689/A
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/U1659/A
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/U230/A
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/U229/A
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/U2053/A
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/U1784/A
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/U1680/A
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/U1675/A
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/U1641/A
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/U1608/A
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/U223/A
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/U109/Y
+                                0.50           0.51          -0.01  (VIOLATED)
+   I_BLENDER_0/intadd_86_SUM_2_
+                                0.30           0.30          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_0/intadd_86_U14/S
+                                0.30           0.30          -0.01  (VIOLATED)
+   I_BLENDER_1/n3763            0.25           0.26          -0.01  (VIOLATED)
+       PIN :   I_BLENDER_1/trans1_reg/Q
+                                0.25           0.26          -0.01  (VIOLATED)
+   I_PARSER/n716                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_PARSER/U121/A3
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_PARSER/U125/A
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_PARSER/U128/A3
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_PARSER/U143/A4
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_PARSER/U178/A3
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_PARSER/U214/A2
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_PARSER/U278/A3
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_PARSER/U778/S0
+                                0.50           0.51          -0.01  (VIOLATED)
+       PIN :   I_PARSER/U116/Y
+                                0.50           0.51          -0.01  (VIOLATED)
+   I_PCI_TOP/mult_x_29_n826     0.28           0.29           0.00  (VIOLATED: increase significant digits)
+   I_SDRAM_TOP/I_SDRAM_IF/n1682
+                                0.50           0.50           0.00  (VIOLATED: increase significant digits)
+   I_SDRAM_TOP/I_SDRAM_IF/n2030
+                                0.50           0.50           0.00  (VIOLATED: increase significant digits)
+   I_RISC_CORE/Oprnd_A[7]       0.09           0.09           0.00  (VIOLATED: increase significant digits)
+   I_BLENDER_1/s3_op2[28]       0.25           0.26           0.00  (VIOLATED: increase significant digits)
+   I_BLENDER_0/n3529            0.31           0.31           0.00  (VIOLATED: increase significant digits)
+   I_BLENDER_1/s3_op2_15        0.28           0.28           0.00  (VIOLATED: increase significant digits)
+   I_BLENDER_0/n3893            0.24           0.24           0.00  (VIOLATED: increase significant digits)
+   I_RISC_CORE/Oprnd_A[4]       0.09           0.09           0.00  (VIOLATED: increase significant digits)
+   I_RISC_CORE/Oprnd_B[13]      0.09           0.09           0.00  (VIOLATED: increase significant digits)
+   I_BLENDER_1/n2557            0.50           0.50           0.00  (VIOLATED: increase significant digits)
+   I_BLENDER_1/n2877            0.50           0.50           0.00  (VIOLATED: increase significant digits)
+   I_RISC_CORE/Oprnd_A[3]       0.09           0.09           0.00  (VIOLATED: increase significant digits)
+   I_RISC_CORE/n1347            0.11           0.12           0.00  (VIOLATED: increase significant digits)
+   I_BLENDER_1/n3529            0.32           0.33           0.00  (VIOLATED: increase significant digits)
+   I_BLENDER_1/n3484            0.31           0.31           0.00  (VIOLATED: increase significant digits)
+   I_BLENDER_0/n3892            0.24           0.24           0.00  (VIOLATED: increase significant digits)
+   I_BLENDER_1/n3767            0.24           0.24           0.00  (VIOLATED: increase significant digits)
+   I_BLENDER_1/N578             0.31           0.31           0.00  (VIOLATED: increase significant digits)
+   I_BLENDER_1/s3_op2[22]       0.25           0.25           0.00  (VIOLATED: increase significant digits)
+   I_PCI_TOP/mult_x_31_n827     0.28           0.29           0.00  (VIOLATED: increase significant digits)
+   I_BLENDER_0/intadd_86_B_7_
+                                0.31           0.31           0.00  (VIOLATED: increase significant digits)
+   I_BLENDER_1/s3_op1[30]       0.24           0.24           0.00  (VIOLATED: increase significant digits)
+
+   -----------------------------------------------------------------
+   Total                      85                 -1.20  
+
+   max_capacitance
+
+                             Required        Actual
+   Net                      Capacitance    Capacitance       Slack
+   -----------------------------------------------------------------
+   pad_out[0]                  82.00         100.00         -18.00  (VIOLATED)
+   pad_out[1]                  82.00         100.00         -18.00  (VIOLATED)
+   pad_out[2]                  82.00         100.00         -18.00  (VIOLATED)
+   pad_out[3]                  82.00         100.00         -18.00  (VIOLATED)
+   pad_out[4]                  82.00         100.00         -18.00  (VIOLATED)
+   pad_out[5]                  82.00         100.00         -18.00  (VIOLATED)
+   pad_out[6]                  82.00         100.00         -18.00  (VIOLATED)
+   pad_out[7]                  82.00         100.00         -18.00  (VIOLATED)
+   pad_out[8]                  82.00         100.00         -18.00  (VIOLATED)
+   pad_out[9]                  82.00         100.00         -18.00  (VIOLATED)
+   pad_out[10]                 82.00         100.00         -18.00  (VIOLATED)
+   pad_out[11]                 82.00         100.00         -18.00  (VIOLATED)
+   pad_out[12]                 82.00         100.00         -18.00  (VIOLATED)
+   pad_out[13]                 82.00         100.00         -18.00  (VIOLATED)
+   pad_out[14]                 82.00         100.00         -18.00  (VIOLATED)
+   pad_out[15]                 82.00         100.00         -18.00  (VIOLATED)
+   pad_out[16]                 82.00         100.00         -18.00  (VIOLATED)
+   pad_out[17]                 82.00         100.00         -18.00  (VIOLATED)
+   pad_out[18]                 82.00         100.00         -18.00  (VIOLATED)
+   pad_out[19]                 82.00         100.00         -18.00  (VIOLATED)
+   pad_out[20]                 82.00         100.00         -18.00  (VIOLATED)
+   pad_out[21]                 82.00         100.00         -18.00  (VIOLATED)
+   pad_out[22]                 82.00         100.00         -18.00  (VIOLATED)
+   pad_out[23]                 82.00         100.00         -18.00  (VIOLATED)
+   pad_out[24]                 82.00         100.00         -18.00  (VIOLATED)
+   pad_out[25]                 82.00         100.00         -18.00  (VIOLATED)
+   pad_out[26]                 82.00         100.00         -18.00  (VIOLATED)
+   pad_out[27]                 82.00         100.00         -18.00  (VIOLATED)
+   pad_out[28]                 82.00         100.00         -18.00  (VIOLATED)
+   pad_out[29]                 82.00         100.00         -18.00  (VIOLATED)
+   pad_out[30]                 82.00         100.00         -18.00  (VIOLATED)
+   pad_out[31]                 82.00         100.00         -18.00  (VIOLATED)
+   I_SDRAM_TOP/I_SDRAM_IF/n173
+                                8.00          14.09          -6.09  (VIOLATED)
+   I_SDRAM_TOP/I_SDRAM_IF/n740
+                                8.00          10.57          -2.57  (VIOLATED)
+   I_BLENDER_1/n610             8.00           9.63          -1.63  (VIOLATED)
+   n388                         8.00           8.50          -0.50  (VIOLATED)
+   I_SDRAM_TOP/I_SDRAM_IF/n175
+                                8.00           8.11          -0.11  (VIOLATED)
+   I_SDRAM_TOP/I_SDRAM_IF/n179
+                                8.00           8.11          -0.11  (VIOLATED)
+   I_SDRAM_TOP/I_SDRAM_IF/n174
+                                8.00           8.04          -0.04  (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      39               -587.18  
+
+   max_leakage_power
+
+                             Required        Actual
+   Design                   Leakage Power  Leakage Power     Slack
+   -----------------------------------------------------------------
+   ORCA_TOP                     0.00       389546752.00   -389546752.00
+                                                                    (VIOLATED)
+
+
+1

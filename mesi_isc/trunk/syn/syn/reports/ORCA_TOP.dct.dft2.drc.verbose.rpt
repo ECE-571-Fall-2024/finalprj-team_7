@@ -1,0 +1,18 @@
+In mode: Internal_scan...
+  Design has scan chains in this mode
+  Design is scan routed
+  Post-DFT DRC enabled
+
+Information: Starting test design rule checking. (TEST-222)
+  Loading test protocol
+  ...basic checks...
+  ...basic sequential cell checks...
+  ...checking vector rules...
+ Error: Line 920 (/tmp/__dft_drc.spf.ORCA_TOP.koushik.3436), unresolved reference (No such net "I_21/\**inside** "). (V5-1)
+ Error: Line 923 (/tmp/__dft_drc.spf.ORCA_TOP.koushik.3436), unresolved reference (No such net "I_0/\**inside** "). (V5-2)
+ Error: Line 926 (/tmp/__dft_drc.spf.ORCA_TOP.koushik.3436), unresolved reference (No such net "I_2/\**inside** "). (V5-3)
+ Error: Line 949 (/tmp/__dft_drc.spf.ORCA_TOP.koushik.3436), unresolved reference (PLL source for internal clock I_29679/Y does not exist). (V5-4)
+ Error: Line 949 (/tmp/__dft_drc.spf.ORCA_TOP.koushik.3436), unresolved reference (PLL source for internal clock I_29680/Y does not exist). (V5-5)
+ Error: Line 949 (/tmp/__dft_drc.spf.ORCA_TOP.koushik.3436), unresolved reference (PLL source for internal clock I_29681/Y does not exist). (V5-6)
+Error: Could not perform design rule checking. (TEST-1311)
+0

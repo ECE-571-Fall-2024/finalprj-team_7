@@ -1,0 +1,18 @@
+# Cadence Genus(TM) Synthesis Solution, Version 19.12-s121_1, built Dec  3 2019 15:07:17
+
+# Date: Wed Dec 04 02:03:17 2024
+# Host: auto.ece.pdx.edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (1core*32cpus*32physical cpus*Intel Xeon Processor (Cascadelake) 16384KB)
+# OS:   CentOS Linux release 7.9.2009 (Core)
+
+# Cadence Genus(TM) Synthesis Solution, Version 19.12-s121_1, built Dec  3 2019 15:07:17
+
+# Date: Wed Dec 04 02:03:30 2024
+# Host: auto.ece.pdx.edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (1core*32cpus*32physical cpus*Intel Xeon Processor (Cascadelake) 16384KB)
+# OS:   CentOS Linux release 7.9.2009 (Core)
+
+set top_design mesi_isc
+source ../scripts/genus.tcl
+report_timing
+set top_desin fifo1
+source ../scripts/genus.tcl
+exit

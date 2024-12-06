@@ -1,0 +1,107 @@
+In mode: all_dft...
+
+Information: Starting test design rule checking. (TEST-222)
+Warning: Clock gating cell test pin 'I_BLENDER_1/clk_gate_rem_green_reg/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_BLENDER_0/clk_gate_rem_green_reg/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_RISC_CORE/I_STACK_TOP_I2_STACK_MEM_clk_gate_Stack_Mem_reg_0_/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_RISC_CORE/I_STACK_TOP_I2_STACK_MEM_clk_gate_Stack_Mem_reg_1_/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_RISC_CORE/I_STACK_TOP_I2_STACK_MEM_clk_gate_Stack_Mem_reg_2_/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_RISC_CORE/I_STACK_TOP_I2_STACK_MEM_clk_gate_Stack_Mem_reg_3_/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_RISC_CORE/I_STACK_TOP_I2_STACK_MEM_clk_gate_Stack_Mem_reg_4_/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_RISC_CORE/I_STACK_TOP_I2_STACK_MEM_clk_gate_Stack_Mem_reg_5_/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_RISC_CORE/I_STACK_TOP_I2_STACK_MEM_clk_gate_Stack_Mem_reg_6_/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_RISC_CORE/I_STACK_TOP_I2_STACK_MEM_clk_gate_Stack_Mem_reg_7_/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_RISC_CORE/I_STACK_TOP_I2_STACK_MEM_clk_gate_PopDataOut_reg/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_RISC_CORE/I_STACK_TOP_I_STACK_FSM_clk_gate_TOS_int_reg/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_RISC_CORE/I_PRGRM_CNT_TOP_I_PRGRM_CNT_clk_gate_PCint_reg/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_RISC_CORE/I_INSTRN_LAT_clk_gate_Crnt_Instrn_2_reg/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_RISC_CORE/I_DATA_PATH_clk_gate_Oprnd_A_reg/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_RISC_CORE/I_DATA_PATH_clk_gate_Oprnd_B_reg/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_RISC_CORE/I_DATA_PATH_clk_gate_PSWL_Carry_reg/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_RISC_CORE/I_ALU_clk_gate_Lachd_Result_reg/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_CONTEXT_MEM/clk_gate_ram_write_addr_reg/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_CONTEXT_MEM/clk_gate_ram_read_addr_reg/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_PCI_TOP/I_PCI_CORE_clk_gate_pad_out_buf_reg/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_SDRAM_TOP/I_SDRAM_IF/clk_gate_mega_shift_1_reg_0_/TE' is unconnected inside hierarchy. Will be ignored.
+Warning: Clock gating cell test pin 'I_SDRAM_TOP/I_SDRAM_IF/clk_gate_mega_shift_0_reg_0_/TE' is unconnected inside hierarchy. Will be ignored.
+  Loading test protocol
+  ...basic checks...
+  ...basic sequential cell checks...
+  	...checking for scan equivalents...
+  ...checking vector rules...
+  ...checking pre-dft rules...
+
+-----------------------------------------------------------------
+Begin Modeling violations...
+
+Warning: Cell I_SDRAM_TOP/I_SDRAM_WRITE_FIFO_SD_FIFO_RAM_0 (SRAM2RW64x32) is unknown (black box) because functionality for output pin O1[0] is bad or incomplete. (TEST-451)
+Information: There are 39 other cells with the same violation. (TEST-171)
+
+Modeling violations completed...
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+Begin Topology violations...
+
+Warning: Input pin cmd_in_valid of cell I_PCI_TOP (PCI_TOP) is unconnected. It is assumed 'X' for the purpose of test. (TEST-332)
+Information: There are 234 other pins with the same violation. (TEST-170)
+
+Topology violations completed...
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+Begin Pre-DFT violations...
+
+ Warning: Clock I_CLOCKING/sys_clk_in_reg cannot capture data with other clocks off. (D8-1)
+Information: There is 1 other port with the same violation (TEST-298)
+
+Pre-DFT violations completed...
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+Begin Other violations...
+
+Warning: Cell I_SDRAM_TOP/I_SDRAM_IF/clk_gate_mega_shift_0_reg_0_/latch has constant 1 value. (TEST-505)
+
+Other violations completed...
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+  DRC Report
+
+  Total violations: 278
+
+-----------------------------------------------------------------
+
+49 MODELING VIOLATIONS
+    40 Cell has unknown model violations (TEST-451)
+
+235 TOPOLOGY VIOLATIONS
+   235 Unconnected input pin violations (TEST-332)
+
+2 PRE-DFT VIOLATIONS
+     2 Clock not able to capture violations (D8)
+
+1 OTHER VIOLATION
+     1 Cell is constant 1 violation (TEST-505)
+
+
+Warning: Violations occurred during test design rule checking. (TEST-124)
+
+-----------------------------------------------------------------
+  Sequential Cell Report
+
+  23 out of 5138 sequential cells have violations
+
+-----------------------------------------------------------------
+
+SEQUENTIAL CELLS WITH VIOLATIONS
+      *   1 cell has constant 1 value
+      *  22 cells are clock gating cells
+SEQUENTIAL CELLS WITHOUT VIOLATIONS
+      *   9 cells are valid non-scan cells
+      *4830 cells are valid scan cells
+      * 276 cells are non-scan shift-register cells
+
+Information: Test design rule checking completed. (TEST-123)
+1

@@ -1,0 +1,921 @@
+setting auto_restore_mw_cel_lib_setup true
+dc_shell> set top_design mesi_isc
+mesi_isc
+dc_shell> source ../scripts/dc.tcl
+set lib_dir /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib
+set hack_lef_dir /u/bcruik2/hacked_lefs
+/u/bcruik2/hacked_lefs
+# Decoder ring for the libraries
+# You will need to follow another example or look in the library directories to understand.
+# lib_types is used for the dc/dct linking variables and ICC2 NDM lcoations.
+# /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm
+# /          $lib_dir                   /lib/ $lib_type /db_nldm
+# link_library, Target_library use the sub_lib_types and corner variables. 
+# For sub_lib_types and corner:
+# Example:
+#     saed32hvt_ss0p75v125c.db
+#     |sub_lib  corner    .db
+# The current flow tries to find all sub_lib and all corners in all the search paths.  Any match will be put in the library list.
+# Wild cards can be used, but be careful.  Multiple matches can occur in ways you don't want.
+# For the target library, the same method is used as the link library except only HVT and RVT lib_types are used.
+# ICC2 NDM choosing also uses the sub_lib_types so that only the required libraries and extras are not loaded.
+# fifo1
+#set top_design fifo1
+set add_ios 1
+1
+set pad_design 1
+1
+set design_size { 580 580  } 
+ 580 580  
+set design_io_border 310
+310
+set dc_floorplanning 1
+1
+set enable_dft 0
+0
+set innovus_enable_manual_macro_placement 0
+0
+set rtl_list [list ../../syn/rtl/$top_design.sv ]
+../../syn/rtl/mesi_isc.sv
+set slow_corner "ss0p95v125c_2p25v ss0p95v125c"
+ss0p95v125c_2p25v ss0p95v125c
+set fast_corner "ff0p95vn40c ff1p16vn40c_2p75v ff1p16vn40c"
+ff0p95vn40c ff1p16vn40c_2p75v ff1p16vn40c
+set synth_corners $slow_corner
+ss0p95v125c_2p25v ss0p95v125c
+set synth_corners_target "ss0p95v125c" 
+ss0p95v125c
+#set synth_corners_target "ss0p95v125c" 
+set synth_corners_slow $slow_corner
+ss0p95v125c_2p25v ss0p95v125c
+set synth_corners_fast $fast_corner
+ff0p95vn40c ff1p16vn40c_2p75v ff1p16vn40c
+set slow_metal Cmax_125
+Cmax_125
+set fast_metal Cmax_125
+Cmax_125
+set lib_types "$lib_dir/stdcell_rvt/db_nldm $lib_dir/stdcell_hvt/db_nldm $lib_dir/io_std/db_nldm $lib_dir/sram/db_nldm $lib_dir/pll/db_nldm"
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm
+set ndm_types "$lib_dir/stdcell_rvt/ndm $lib_dir/stdcell_hvt/ndm $lib_dir/sram/ndm $lib_dir/io_std/ndm  $lib_dir/pll/ndm"
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/ndm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/ndm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/ndm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/ndm  /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/ndm
+set lib_types_target "$lib_dir/stdcell_rvt/db_nldm"
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm
+# Get just the main standard cells, srams and IOs
+set sub_lib_type "saed32?vt_ saed32sram_ saed32io_wb_ saed32pll_"
+saed32?vt_ saed32sram_ saed32io_wb_ saed32pll_
+set sub_lib_type_target "saed32rvt_"
+saed32rvt_
+set tech_lef ${hack_lef_dir}/tech.lef 
+/u/bcruik2/hacked_lefs/tech.lef
+# set tech_lef ../../cadence_cap_tech/tech.lef
+set lef_types [list $hack_lef_dir  $lib_dir/sram/lef/ $lib_dir/io_std/lef $lib_dir/pll/lef ]
+/u/bcruik2/hacked_lefs /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/lef/ /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/lef /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/lef
+#set lef_types [list $lib_dir/stdcell_hvt/lef  $lib_dir/stdcell_rvt/lef $lib_dir/stdcell_lvt/lef $lib_dir/sram/lef $lib_dir/io_std/lef $lib_dir/pll/lef ]
+set sub_lef_type "saed32nm_?vt_*.lef saed32sram.lef saed32_io_wb_all.lef saed32_PLL.lef"
+saed32nm_?vt_*.lef saed32sram.lef saed32_io_wb_all.lef saed32_PLL.lef
+set mwlib_types [list $lib_dir/stdcell_hvt/milkyway $lib_dir/stdcell_rvt/milkyway $lib_dir/stdcell_lvt/milkyway  $lib_dir/io_std/milkyway $lib_dir/sram/milkyway $lib_dir/pll/milkyway  ]
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/milkyway
+set sub_mwlib_type "saed32nm_?vt_* SRAM32NM saed32io_wb_* SAED32_PLL_FR*"
+saed32nm_?vt_* SRAM32NM saed32io_wb_* SAED32_PLL_FR*
+#set topdir /u/$env(USER)/PSU_RTL2GDS
+set topdir [ lindex [ regexp -inline "(.*)\(syn\|pt\|apr\)" [pwd] ] 1 ]
+/u/sigicher/ECE-530-2024/a/
+set FCL 0
+0
+set split_constraints 0
+0
+Warning: No designs to list. (UID-275)
+== ANALYZE autoread all files ==
+
+Starting ANALYZE autoread mode...
+Warning: Defining design library 'WORK' at directory '/u/sigicher/ECE-530-2024/a/syn/work/WORK_autoread'. (AUTOREAD-107)
+Information: Adding '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc.sv'.  (AUTOREAD-100)
+Information: Adding '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_define.sv'.  (AUTOREAD-100)
+Warning: Adding missing directory to search_path - '/u/sigicher/ECE-530-2024/a/syn/rtl'. (AUTOREAD-105)
+Information: Adding '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_breq_fifos.sv'.  (AUTOREAD-100)
+Information: Adding '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_breq_fifos_cntl.sv'.  (AUTOREAD-100)
+Information: Adding '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_broad.sv'.  (AUTOREAD-100)
+Information: Adding '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_broad_cntl.sv'.  (AUTOREAD-100)
+Information: Adding '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_basic_fifo.sv'.  (AUTOREAD-100)
+Information: Scanning file { mesi_isc.sv }. (AUTOREAD-303)
+Compiling source file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_basic_fifo.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_define.sv
+Presto compilation completed successfully.
+Compiling source file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_breq_fifos_cntl.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_define.sv
+Presto compilation completed successfully.
+Compiling source file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_broad_cntl.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_define.sv
+Presto compilation completed successfully.
+Compiling source file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_broad.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_define.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_broad_cntl.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_define.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_basic_fifo.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_define.sv
+Presto compilation completed successfully.
+Compiling source file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_breq_fifos.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_define.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_breq_fifos_cntl.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_define.sv
+Presto compilation completed successfully.
+Compiling source file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_define.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_breq_fifos.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_define.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_breq_fifos_cntl.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_define.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_broad.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_define.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_broad_cntl.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_define.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_basic_fifo.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_define.sv
+Presto compilation completed successfully.
+Autoread command completed successfully.
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db'
+Loading db file '/pkgs/synopsys/2020/design_compiler/syn/Q-2019.12-SP3/libraries/syn/dw_foundation.sldb'
+Loading db file '/pkgs/synopsys/2016/dft_compiler/libraries/syn/gtech.db'
+Loading db file '/pkgs/synopsys/2016/dft_compiler/libraries/syn/standard.sldb'
+  Loading link library 'saed32rvt_ss0p95v125c'
+  Loading link library 'saed32hvt_ss0p95v125c'
+  Loading link library 'saed32io_wb_ss0p95v125c_2p25v'
+  Loading link library 'saed32sram_ss0p95v125c'
+  Loading link library 'saed32pll_ss0p95v125c_2p25v'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'mesi_isc'.
+Information: Building the design 'mesi_isc_broad' instantiated from design 'mesi_isc' with
+        the parameters "3,32,2,5,4,2". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'mesi_isc_breq_fifos' instantiated from design 'mesi_isc' with
+        the parameters "3,32,2,5,2,1". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'mesi_isc_broad_cntl' instantiated from design 'mesi_isc_broad_CBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5_BROAD_REQ_FIFO_SIZE4_BROAD_REQ_FIFO_SIZE_LOG22' with
+        the parameters "3,2,5". (HDL-193)
+
+Statistics for case statements in always block at line 106 in file
+        '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_broad_cntl.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           119            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+        in routine mesi_isc_broad_cntl_CBUS_CMD_WIDTH3_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5 line 106 in file
+                '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_broad_cntl.sv'.
+===========================================================================================
+|          Register Name          |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===========================================================================================
+|       broad_fifo_rd_o_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    broadcast_in_progress_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   cbus_active_broad_array_reg   | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+| cbus_active_en_access_array_reg | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===========================================================================================
+Presto compilation completed successfully.
+Information: Building the design 'mesi_isc_basic_fifo' instantiated from design 'mesi_isc_broad_CBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5_BROAD_REQ_FIFO_SIZE4_BROAD_REQ_FIFO_SIZE_LOG22' with
+        the parameters "41,4,2". (HDL-193)
+Warning:  /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_basic_fifo.sv:115: signed to unsigned conversion occurs. (VER-318)
+
+Inferred memory devices in process
+        in routine mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE4_FIFO_SIZE_LOG22 line 42 in file
+                '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_basic_fifo.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      entry_reg      | Flip-flop |  164  |  Y  | N  | Y  | N  | N  | N  | N  |
+|     ptr_wr_reg      | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE4_FIFO_SIZE_LOG22 line 62 in file
+                '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_basic_fifo.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     data_o_reg      | Flip-flop |  41   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE4_FIFO_SIZE_LOG22 line 80 in file
+                '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_basic_fifo.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     ptr_rd_reg      | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE4_FIFO_SIZE_LOG22 line 96 in file
+                '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_basic_fifo.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  status_empty_reg   | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE4_FIFO_SIZE_LOG22 line 110 in file
+                '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_basic_fifo.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   status_full_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+====================================================================================================
+|                        block name/line                         | Inputs | Outputs | # sel inputs |
+====================================================================================================
+| mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE4_FIFO_SIZE_LOG22/74 |   4    |   41    |      2       |
+| mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE4_FIFO_SIZE_LOG22/77 |   4    |   41    |      2       |
+====================================================================================================
+Presto compilation completed successfully.
+Information: Building the design 'mesi_isc_breq_fifos_cntl' instantiated from design 'mesi_isc_breq_fifos_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5_BREQ_FIFO_SIZE2_BREQ_FIFO_SIZE_LOG21' with
+        the parameters "3,32,2,5". (HDL-193)
+
+Inferred memory devices in process
+        in routine mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5 line 66 in file
+                '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_breq_fifos_cntl.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| fifos_priority_reg  | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+| fifos_priority_reg  | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5 line 149 in file
+                '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_breq_fifos_cntl.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| mbus_ack_array_reg  | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5 line 186 in file
+                '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_breq_fifos_cntl.sv'.
+=================================================================================
+|     Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=================================================================================
+| breq_type_array_o_reg | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+=================================================================================
+
+Inferred memory devices in process
+        in routine mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5 line 242 in file
+                '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_breq_fifos_cntl.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  breq_id_base_reg   | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'mesi_isc_basic_fifo' instantiated from design 'mesi_isc_breq_fifos_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5_BREQ_FIFO_SIZE2_BREQ_FIFO_SIZE_LOG21' with
+        the parameters "41,2,1". (HDL-193)
+Warning:  /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_basic_fifo.sv:115: signed to unsigned conversion occurs. (VER-318)
+
+Inferred memory devices in process
+        in routine mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21 line 42 in file
+                '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_basic_fifo.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      entry_reg      | Flip-flop |  82   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     ptr_wr_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21 line 62 in file
+                '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_basic_fifo.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     data_o_reg      | Flip-flop |  41   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21 line 80 in file
+                '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_basic_fifo.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     ptr_rd_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21 line 96 in file
+                '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_basic_fifo.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  status_empty_reg   | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21 line 110 in file
+                '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_basic_fifo.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   status_full_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+#####################################################
+proc insert_io { port side} {
+  set this_io io_${side}_${port}
+  if {  $side == "t"   } {
+   if { [get_attribute [get_ports $port ] direction ] == "in" } {
+    create_cell $this_io saed32io_wb_ss0p95v125c_2p25v/I1025_NS
+   } else {
+    create_cell $this_io saed32io_wb_ss0p95v125c_2p25v/D8I1025_NS
+   }
+  }
+  if { $side == "b"  } {
+   if { [get_attribute [get_ports $port ] direction ] == "in" } {
+    create_cell $this_io saed32io_wb_ss0p95v125c_2p25v/I1025_NS
+   } else {
+    create_cell $this_io saed32io_wb_ss0p95v125c_2p25v/D8I1025_NS
+   }
+  }
+  if {  $side == "r"  } {
+   if { [get_attribute [get_ports $port ] direction ] == "in" } {
+    create_cell $this_io saed32io_wb_ss0p95v125c_2p25v/I1025_NS
+   } else {
+    create_cell $this_io saed32io_wb_ss0p95v125c_2p25v/D8I1025_NS
+   }
+  }
+  if { $side == "l"  } {
+   if { [get_attribute [get_ports $port ] direction ] == "in" } {
+    create_cell $this_io saed32io_wb_ss0p95v125c_2p25v/I1025_NS
+   } else {
+    create_cell $this_io saed32io_wb_ss0p95v125c_2p25v/D8I1025_NS
+   }
+  }
+  set pins [ get_pins -of_obj [ get_net $port ] ]
+  foreach_in i $pins { disconnect_net [get_net $port ] $i }
+  set port_net [get_nets -quiet $port ]
+
+  # If only a port is created, the related net is not created and connected to the port.  Do that here.
+  if { [sizeof_collection $port_net ] == 0 } { 
+      create_net $port 
+      connect_net $port [get_ports $port ]
+  }
+
+  connect_net [get_net $port ]  $this_io/PADIO
+  create_net ${this_io}_net
+  foreach_in i $pins { connect_net ${this_io}_net $i }
+  #DIN is input to IO_PAD
+  #DOUT is output of IO_PAD
+  #EN is the IO_PAD enable to output
+  if { [get_attribute [get_ports $port ] direction ] == "in" } {
+     #connect_net [get_nets  *Logic0* ] ${this_io}/EN 
+     connect_net [get_nets  *Logic1* ] ${this_io}/R_EN 
+     connect_net ${this_io}_net ${this_io}/DOUT
+  } else {
+     connect_net [get_nets  *Logic1* ] $this_io/EN 
+     #connect_net [get_nets  *Logic0* ] $this_io/R_EN 
+     connect_net ${this_io}_net $this_io/DIN
+  }
+}
+####################################################
+Warning: The specified replacement character (_) is conflicting with the specified allowed or restricted character.   (UCN-4)
+Warning: In the design mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5, net 'mbus_ack_array_o[3]' is connecting multiple ports. (UCN-1)
+Warning: In the design mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5, net 'mbus_ack_array_o[2]' is connecting multiple ports. (UCN-1)
+Warning: In the design mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5, net 'mbus_ack_array_o[1]' is connecting multiple ports. (UCN-1)
+Warning: In the design mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5, net 'mbus_ack_array_o[0]' is connecting multiple ports. (UCN-1)
+Warning: In the design mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5, net '*Logic1*' is connecting multiple ports. (UCN-1)
+Warning: In the design mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5, net '*Logic0*' is connecting multiple ports. (UCN-1)
+Warning: In the design mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5, net 'breq_id_array_o[19]' is connecting multiple ports. (UCN-1)
+Warning: In the design mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5, net 'breq_id_array_o[18]' is connecting multiple ports. (UCN-1)
+Warning: In the design mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5, net 'breq_id_array_o[17]' is connecting multiple ports. (UCN-1)
+## Generated SDC file "mesi_isc.out.sdc"
+## Copyright (C) 1991-2012 Altera Corporation
+## Your use of Altera Corporation's design tools, logic functions 
+## and other software and tools, and its AMPP partner logic 
+## functions, and any output files from any of the foregoing 
+## (including device programming or simulation files), and any 
+## associated documentation or information are expressly subject 
+## to the terms and conditions of the Altera Program License 
+## Subscription Agreement, Altera MegaCore Function License 
+## Agreement, or other applicable license agreement, including, 
+## without limitation, that your use is for the sole purpose of 
+## programming logic devices manufactured by Altera and sold by 
+## Altera or its authorized distributors.  Please refer to the 
+## applicable agreement for further details.
+## VENDOR  "Altera"
+## PROGRAM "Quartus II"
+## VERSION "Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Web Edition"
+## DATE    "Tue Nov  6 14:51:56 2012"
+##
+## DEVICE  "EP4CGX30CF23C6"
+##
+#**************************************************************
+# Time Information
+#**************************************************************
+#set_time_format -unit ns -decimal_places 3
+#**************************************************************
+# Create Clock
+#**************************************************************
+create_clock -name {clk} -period 1.000 -waveform { 0.000 0.500 } [get_ports {clk}]
+1
+#**************************************************************
+# Create Generated Clock
+#**************************************************************
+#**************************************************************
+# Set Clock Latency
+#**************************************************************
+#**************************************************************
+# Set Clock Uncertainty
+#**************************************************************
+set_clock_uncertainty -rise_from [get_clocks {clk}] -rise_to [get_clocks {clk}]  0.020  
+1
+set_clock_uncertainty -rise_from [get_clocks {clk}] -fall_to [get_clocks {clk}]  0.020  
+1
+set_clock_uncertainty -fall_from [get_clocks {clk}] -rise_to [get_clocks {clk}]  0.020  
+1
+set_clock_uncertainty -fall_from [get_clocks {clk}] -fall_to [get_clocks {clk}]  0.020  
+1
+#**************************************************************
+# Set Input Delay
+#**************************************************************
+set_input_delay -add_delay  -clock [get_clocks {clk}]  0.100 [get_ports {cbus_ack*}]
+1
+set_input_delay -add_delay  -clock [get_clocks {clk}]  0.100 [get_ports {mbus_addr*}]
+1
+set_input_delay -add_delay  -clock [get_clocks {clk}]  0.100 [get_ports {mbus_cmd*}]
+1
+#**************************************************************
+# Set Output Delay
+#**************************************************************
+set_output_delay -add_delay  -clock [get_clocks {clk}]  0.100 [get_ports {cbus_addr_o*}]
+1
+set_output_delay -add_delay  -clock [get_clocks {clk}]  0.100 [get_ports {cbus_cmd*}]
+1
+set_output_delay -add_delay  -clock [get_clocks {clk}]  0.100 [get_ports {mbus_ack*}]
+1
+#**************************************************************
+# Set Clock Groups
+#**************************************************************
+#**************************************************************
+# Set False Path
+#**************************************************************
+#**************************************************************
+# Set Multicycle Path
+#**************************************************************
+set_clock_latency 0.1 clk
+1
+set_clock_transition 0.1 clk
+1
+set_clock_uncertainty 0.070 clk
+1
+set_input_delay 0.25 -clock clk [all_inputs] 
+1
+set_output_delay 0.25 -clock clk [all_outputs]
+1
+set_drive 0.00001 [all_inputs ]
+1
+set_load 0.1 [all_outputs ]
+1
+#**************************************************************
+# Set Maximum Delay
+#**************************************************************
+#**************************************************************
+# Set Minimum Delay
+#**************************************************************
+#**************************************************************
+# Set Input Transition
+#**************************************************************
+Current design is 'mesi_isc'.
+Information: Uniquified 4 instances of design 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21'. (OPT-1056)
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Choosing a test methodology will restrict the optimization of sequential cells. (UIO-12)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | L-2016.03-DWBB_201603.3 |     *     |
+| Licensed DW Building Blocks        | Q-2019.12-DWBB_201912.3 |     *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+
+Information: There are 60 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+  Simplifying Design 'mesi_isc'
+
+Loaded alib file './alib-52/saed32rvt_ss0p95v125c.db.alib'
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_1'
+Information: The register 'entry_reg_0__0_' is a constant and will be removed. (OPT-1206)
+Information: The register 'entry_reg_0__6_' is a constant and will be removed. (OPT-1206)
+Information: The register 'entry_reg_1__0_' is a constant and will be removed. (OPT-1206)
+Information: The register 'entry_reg_1__6_' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_o_reg_0_' is a constant and will be removed. (OPT-1206)
+Information: In design 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_1', the register 'entry_reg_0__5_' is removed because it is merged to 'entry_reg_0__1_'. (OPT-1215)
+Information: In design 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_1', the register 'entry_reg_1__5_' is removed because it is merged to 'entry_reg_1__1_'. (OPT-1215)
+  Processing 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_3'
+Information: The register 'entry_reg_0__0_' is a constant and will be removed. (OPT-1206)
+Information: The register 'entry_reg_0__1_' is a constant and will be removed. (OPT-1206)
+Information: The register 'entry_reg_1__0_' is a constant and will be removed. (OPT-1206)
+Information: The register 'entry_reg_1__1_' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_o_reg_1_' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_o_reg_0_' is a constant and will be removed. (OPT-1206)
+Information: In design 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_3', the register 'entry_reg_0__6_' is removed because it is merged to 'entry_reg_0__5_'. (OPT-1215)
+Information: In design 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_3', the register 'entry_reg_1__6_' is removed because it is merged to 'entry_reg_1__5_'. (OPT-1215)
+  Processing 'mesi_isc_breq_fifos_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5_BREQ_FIFO_SIZE2_BREQ_FIFO_SIZE_LOG21'
+  Processing 'mesi_isc_broad_CBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5_BROAD_REQ_FIFO_SIZE4_BROAD_REQ_FIFO_SIZE_LOG22'
+  Processing 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE4_FIFO_SIZE_LOG22'
+Information: Added key list 'DesignWare' to design 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE4_FIFO_SIZE_LOG22'. (DDB-72)
+  Processing 'mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5'
+Information: Added key list 'DesignWare' to design 'mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5'. (DDB-72)
+  Processing 'mesi_isc_broad_cntl_CBUS_CMD_WIDTH3_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5'
+  Processing 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_0'
+Information: The register 'entry_reg_0__5_' is a constant and will be removed. (OPT-1206)
+Information: The register 'entry_reg_0__6_' is a constant and will be removed. (OPT-1206)
+Information: The register 'entry_reg_1__5_' is a constant and will be removed. (OPT-1206)
+Information: The register 'entry_reg_1__6_' is a constant and will be removed. (OPT-1206)
+Information: In design 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_0', the register 'entry_reg_0__1_' is removed because it is merged to 'entry_reg_0__0_'. (OPT-1215)
+Information: In design 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_0', the register 'entry_reg_1__1_' is removed because it is merged to 'entry_reg_1__0_'. (OPT-1215)
+  Processing 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_2'
+Information: The register 'entry_reg_0__1_' is a constant and will be removed. (OPT-1206)
+Information: The register 'entry_reg_0__5_' is a constant and will be removed. (OPT-1206)
+Information: The register 'entry_reg_1__1_' is a constant and will be removed. (OPT-1206)
+Information: The register 'entry_reg_1__5_' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_o_reg_1_' is a constant and will be removed. (OPT-1206)
+Information: In design 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_2', the register 'entry_reg_0__6_' is removed because it is merged to 'entry_reg_0__0_'. (OPT-1215)
+Information: In design 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_2', the register 'entry_reg_1__6_' is removed because it is merged to 'entry_reg_1__0_'. (OPT-1215)
+  Processing 'mesi_isc'
+
+  Updating timing information
+Information: The register 'mesi_isc_breq_fifos/fifo_3/entry_reg_0__5_' will be removed. (OPT-1207)
+Information: The register 'mesi_isc_breq_fifos/fifo_3/entry_reg_1__5_' will be removed. (OPT-1207)
+Information: Updating design information... (UID-85)
+Information: The library cell 'PMT3_RVT' in the library 'saed32rvt_ss0p95v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT2_RVT' in the library 'saed32rvt_ss0p95v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT1_RVT' in the library 'saed32rvt_ss0p95v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT3_RVT' in the library 'saed32rvt_ss0p95v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT2_RVT' in the library 'saed32rvt_ss0p95v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT1_RVT' in the library 'saed32rvt_ss0p95v125c' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+Information: Automatic shift-register identification is enabled for scan. Not all registers will be scan-replaced. (OPT-467)
+Information: Complementing port 'mbus_ack_array_o[3]' in design 'mesi_isc_breq_fifos_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5_BREQ_FIFO_SIZE2_BREQ_FIFO_SIZE_LOG21'.
+         The new name of the port is 'mbus_ack_array_o[3]_BAR'. (OPT-319)
+Information: Complementing port 'mbus_ack_array_o[3]' in design 'mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5'.
+         The new name of the port is 'mbus_ack_array_o[3]_BAR'. (OPT-319)
+Information: Complementing port 'fifo_wr_array_o[3]' in design 'mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5'.
+         The new name of the port is 'fifo_wr_array_o[3]_BAR'. (OPT-319)
+Information: Complementing port 'wr_i' in design 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_3'.
+         The new name of the port is 'wr_i_BAR'. (OPT-319)
+Information: Complementing port 'mbus_ack_array_o[2]' in design 'mesi_isc_breq_fifos_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5_BREQ_FIFO_SIZE2_BREQ_FIFO_SIZE_LOG21'.
+         The new name of the port is 'mbus_ack_array_o[2]_BAR'. (OPT-319)
+Information: Complementing port 'mbus_ack_array_o[2]' in design 'mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5'.
+         The new name of the port is 'mbus_ack_array_o[2]_BAR'. (OPT-319)
+Information: Complementing port 'fifo_wr_array_o[2]' in design 'mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5'.
+         The new name of the port is 'fifo_wr_array_o[2]_BAR'. (OPT-319)
+Information: Complementing port 'wr_i' in design 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_2'.
+         The new name of the port is 'wr_i_BAR'. (OPT-319)
+Information: Complementing port 'mbus_ack_array_o[1]' in design 'mesi_isc_breq_fifos_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5_BREQ_FIFO_SIZE2_BREQ_FIFO_SIZE_LOG21'.
+         The new name of the port is 'mbus_ack_array_o[1]_BAR'. (OPT-319)
+Information: Complementing port 'mbus_ack_array_o[1]' in design 'mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5'.
+         The new name of the port is 'mbus_ack_array_o[1]_BAR'. (OPT-319)
+Information: Complementing port 'fifo_wr_array_o[1]' in design 'mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5'.
+         The new name of the port is 'fifo_wr_array_o[1]_BAR'. (OPT-319)
+Information: Complementing port 'wr_i' in design 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_1'.
+         The new name of the port is 'wr_i_BAR'. (OPT-319)
+Information: Complementing port 'mbus_ack_array_o[0]' in design 'mesi_isc_breq_fifos_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5_BREQ_FIFO_SIZE2_BREQ_FIFO_SIZE_LOG21'.
+         The new name of the port is 'mbus_ack_array_o[0]_BAR'. (OPT-319)
+Information: Complementing port 'mbus_ack_array_o[0]' in design 'mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5'.
+         The new name of the port is 'mbus_ack_array_o[0]_BAR'. (OPT-319)
+Information: Complementing port 'fifo_wr_array_o[0]' in design 'mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5'.
+         The new name of the port is 'fifo_wr_array_o[0]_BAR'. (OPT-319)
+Information: Complementing port 'wr_i' in design 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_0'.
+         The new name of the port is 'wr_i_BAR'. (OPT-319)
+Information: Complementing port 'broad_fifo_status_full_i' in design 'mesi_isc_breq_fifos_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5_BREQ_FIFO_SIZE2_BREQ_FIFO_SIZE_LOG21'.
+         The new name of the port is 'broad_fifo_status_full_i_BAR'. (OPT-319)
+Information: Complementing port 'fifo_status_full_o' in design 'mesi_isc_broad_CBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5_BROAD_REQ_FIFO_SIZE4_BROAD_REQ_FIFO_SIZE_LOG22'.
+         The new name of the port is 'fifo_status_full_o_BAR'. (OPT-319)
+Information: Complementing port 'broad_fifo_status_full_i' in design 'mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5'.
+         The new name of the port is 'broad_fifo_status_full_i_BAR'. (OPT-319)
+Information: Complementing port 'status_full_o' in design 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE4_FIFO_SIZE_LOG22'.
+         The new name of the port is 'status_full_o_BAR'. (OPT-319)
+Information: Complementing port 'fifo_status_empty_i' in design 'mesi_isc_broad_cntl_CBUS_CMD_WIDTH3_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5'.
+         The new name of the port is 'fifo_status_empty_i_BAR'. (OPT-319)
+Information: Complementing port 'status_empty_o' in design 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE4_FIFO_SIZE_LOG22'.
+         The new name of the port is 'status_empty_o_BAR'. (OPT-319)
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+  Mapping Optimization (Phase 2)
+  Mapping Optimization (Phase 3)
+  Mapping Optimization (Phase 4)
+  Mapping Optimization (Phase 5)
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+  Global Optimization (Phase 31)
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Isolate Ports
+  -----------------------
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Delay Optimization
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:10    9073.4      0.16      40.5       0.0                           504631648.0000
+    0:00:12    9097.6      0.10      30.4       0.0                           507902592.0000
+    0:00:12    9097.6      0.10      30.4       0.0                           507902592.0000
+    0:00:12    9097.6      0.10      30.4       0.5                           507916032.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:00:13    9053.4      0.14      33.6       0.5                           501057856.0000
+    0:00:13    9052.6      0.14      33.4       0.5                           499800160.0000
+    0:00:13    9052.6      0.14      33.4       0.5                           499800160.0000
+    0:00:14    9129.1      0.12      30.8       0.5                           516634432.0000
+    0:00:14    9129.1      0.12      30.8       0.5                           516634432.0000
+    0:00:14    9129.1      0.12      30.8       0.5                           516634432.0000
+    0:00:14    9129.1      0.12      30.8       0.5                           516634432.0000
+    0:00:15    9129.1      0.12      30.8       0.5                           516634432.0000
+    0:00:15    9129.1      0.12      30.8       0.5                           516634432.0000
+    0:00:16    9174.1      0.11      29.9       0.5                           526972512.0000
+    0:00:16    9174.1      0.11      29.9       0.5                           526972512.0000
+    0:00:16    9174.1      0.11      29.9       0.5                           526972512.0000
+    0:00:16    9174.1      0.11      29.9       0.5                           526972512.0000
+    0:00:17    9174.1      0.11      29.9       0.5                           526972512.0000
+    0:00:17    9174.1      0.11      29.9       0.5                           526972512.0000
+    0:00:18    9174.1      0.11      29.9       0.5                           526972512.0000
+    0:00:18    9174.1      0.11      29.9       0.5                           526972512.0000
+    0:00:19    9174.1      0.11      29.9       0.5                           526972512.0000
+    0:00:19    9174.1      0.11      29.9       0.5                           526972512.0000
+    0:00:20    9174.1      0.11      29.9       0.5                           526972512.0000
+
+
+  Beginning Design Rule Fixing  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:20    9174.1      0.11      29.9       0.5                           526972512.0000
+  Global Optimization (Phase 32)
+  Global Optimization (Phase 33)
+  Global Optimization (Phase 34)
+    0:00:21    9160.1      0.07      19.8       0.0                           515533344.0000
+    0:00:24    9313.1      0.06      15.6       0.0                           517703872.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:24    9313.1      0.06      15.6       0.0                           517703872.0000
+  Global Optimization (Phase 35)
+  Global Optimization (Phase 36)
+  Global Optimization (Phase 37)
+  Global Optimization (Phase 38)
+  Global Optimization (Phase 39)
+  Global Optimization (Phase 40)
+  Global Optimization (Phase 41)
+  Global Optimization (Phase 42)
+  Global Optimization (Phase 43)
+  Global Optimization (Phase 44)
+  Global Optimization (Phase 45)
+  Global Optimization (Phase 46)
+  Global Optimization (Phase 47)
+  Global Optimization (Phase 48)
+  Global Optimization (Phase 49)
+Information: Complementing port 'fifo_status_empty_i_BAR' in design 'mesi_isc_broad_cntl_CBUS_CMD_WIDTH3_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5'.
+         The new name of the port is 'fifo_status_empty_i'. (OPT-319)
+Information: Complementing port 'status_empty_o_BAR' in design 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE4_FIFO_SIZE_LOG22'.
+         The new name of the port is 'status_empty_o'. (OPT-319)
+Information: Complementing port 'rd_i' in design 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE4_FIFO_SIZE_LOG22'.
+         The new name of the port is 'rd_i_BAR'. (OPT-319)
+Information: Complementing port 'broad_fifo_rd_o' in design 'mesi_isc_broad_cntl_CBUS_CMD_WIDTH3_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5'.
+         The new name of the port is 'broad_fifo_rd_o_BAR'. (OPT-319)
+Information: Complementing port 'fifo_status_empty_i' in design 'mesi_isc_broad_cntl_CBUS_CMD_WIDTH3_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5'.
+         The new name of the port is 'fifo_status_empty_i_BAR'. (OPT-319)
+Information: Complementing port 'status_empty_o' in design 'mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE4_FIFO_SIZE_LOG22'.
+         The new name of the port is 'status_empty_o_BAR'. (OPT-319)
+    0:00:27    9213.2      0.05      12.3       0.0                           491355648.0000
+    0:00:28    9214.0      0.05      12.1       0.0                           491201152.0000
+    0:00:28    9214.0      0.05      12.1       0.0                           491201152.0000
+    0:00:28    9211.2      0.05      12.1       0.0                           490330688.0000
+    0:00:28    9211.2      0.05      12.1       0.0                           490330688.0000
+    0:00:29    9211.2      0.05      12.1       0.0                           490330688.0000
+    0:00:29    9211.2      0.05      12.1       0.0                           490330688.0000
+    0:00:29    9210.7      0.05      12.5       0.0                           490350656.0000
+    0:00:29    9210.7      0.05      12.5       0.0                           490350656.0000
+    0:00:29    9210.7      0.05      12.5       0.0                           490350656.0000
+    0:00:29    9210.7      0.05      12.5       0.0                           490350656.0000
+    0:00:34    9212.2      0.05      12.1       0.0                           490470880.0000
+    0:00:34    9212.2      0.05      12.1       0.0                           490470880.0000
+    0:00:34    9212.2      0.05      12.1       0.0                           490470880.0000
+    0:00:34    9212.2      0.05      12.1       0.0                           490470880.0000
+    0:00:39    9212.2      0.05      12.1       0.0                           490470880.0000
+    0:00:39    9212.2      0.05      12.1       0.0                           490470880.0000
+    0:00:39    9212.2      0.05      12.1       0.0                           490470880.0000
+    0:00:39    9212.2      0.05      12.1       0.0                           490470880.0000
+    0:00:44    9212.2      0.05      12.1       0.0                           490470880.0000
+    0:00:44    9212.2      0.05      12.1       0.0                           490470880.0000
+    0:00:45    9212.2      0.05      12.1       0.0                           490470880.0000
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:45    9212.2      0.05      12.1       0.0                           490470880.0000
+    0:00:45    9186.0      0.06      12.5       0.0                           490064352.0000
+    0:00:45    9192.6      0.04      11.9       0.0                           490511808.0000
+    0:00:45    9192.6      0.04      11.9       0.0                           490511808.0000
+    0:00:45    9192.6      0.04      11.9       0.0                           490533920.0000
+    0:00:45    9188.8      0.04      11.9       0.0                           490090048.0000
+    0:00:46    9191.1      0.04      11.9       0.0                           490373824.0000
+    0:00:46    9193.9      0.04      11.5       0.0                           491007200.0000
+    0:00:46    9193.9      0.04      11.5       0.0                           491007200.0000
+    0:00:46    9190.6      0.04      11.5       0.2                           491199616.0000
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: In the design mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5, net 'fifo_wr_array_o[3]_BAR' is connecting multiple ports. (UCN-1)
+Warning: In the design mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5, net 'fifo_wr_array_o[2]_BAR' is connecting multiple ports. (UCN-1)
+Warning: In the design mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5, net 'fifo_wr_array_o[1]_BAR' is connecting multiple ports. (UCN-1)
+Warning: In the design mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5, net 'fifo_wr_array_o[0]_BAR' is connecting multiple ports. (UCN-1)
+Writing verilog file '/u/sigicher/ECE-530-2024/a/syn/outputs/mesi_isc.dc.vg'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Writing ddc file '../outputs/mesi_isc.dc.ddc'.
+1
+dc_shell> report_timing
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : mesi_isc
+Version: L-2016.03-SP3
+Date   : Wed Dec  4 11:27:34 2024
+****************************************
+
+Operating Conditions: ss0p95v125c   Library: saed32rvt_ss0p95v125c
+Wire Load Model Mode: enclosed
+
+  Startpoint: mesi_isc_breq_fifos/fifo_1/status_empty_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: mesi_isc_breq_fifos/fifo_0/data_o_reg_10_
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mesi_isc           16000                 saed32rvt_ss0p95v125c
+  mesi_isc_breq_fifos_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5_BREQ_FIFO_SIZE2_BREQ_FIFO_SIZE_LOG21
+                     8000                  saed32rvt_ss0p95v125c
+  mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5
+                     8000                  saed32rvt_ss0p95v125c
+  mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_0
+                     8000                  saed32rvt_ss0p95v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.10       0.10
+  mesi_isc_breq_fifos/fifo_1/status_empty_reg/CLK (SDFFASX1_RVT)
+                                                          0.00       0.10 r
+  mesi_isc_breq_fifos/fifo_1/status_empty_reg/Q (SDFFASX1_RVT)
+                                                          0.20       0.30 r
+  mesi_isc_breq_fifos/fifo_1/status_empty_o (mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_1)
+                                                          0.00       0.30 r
+  mesi_isc_breq_fifos/mesi_isc_breq_fifos_cntl/fifo_status_empty_array_i[1] (mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5)
+                                                          0.00       0.30 r
+  mesi_isc_breq_fifos/mesi_isc_breq_fifos_cntl/U21/Y (OA22X1_RVT)
+                                                          0.08       0.38 r
+  mesi_isc_breq_fifos/mesi_isc_breq_fifos_cntl/U47/Y (AND2X1_RVT)
+                                                          0.06       0.44 r
+  mesi_isc_breq_fifos/mesi_isc_breq_fifos_cntl/U73/Y (NAND3X0_RVT)
+                                                          0.04       0.48 f
+  mesi_isc_breq_fifos/mesi_isc_breq_fifos_cntl/U74/Y (AO21X1_RVT)
+                                                          0.08       0.56 f
+  mesi_isc_breq_fifos/mesi_isc_breq_fifos_cntl/U14/Y (NAND3X0_RVT)
+                                                          0.03       0.60 r
+  mesi_isc_breq_fifos/mesi_isc_breq_fifos_cntl/U75/Y (AND2X1_RVT)
+                                                          0.07       0.66 r
+  mesi_isc_breq_fifos/mesi_isc_breq_fifos_cntl/fifo_rd_array_o[0] (mesi_isc_breq_fifos_cntl_MBUS_CMD_WIDTH3_ADDR_WIDTH32_BROAD_TYPE_WIDTH2_BROAD_ID_WIDTH5)
+                                                          0.00       0.66 r
+  mesi_isc_breq_fifos/fifo_0/rd_i (mesi_isc_basic_fifo_DATA_WIDTH41_FIFO_SIZE2_FIFO_SIZE_LOG21_0)
+                                                          0.00       0.66 r
+  mesi_isc_breq_fifos/fifo_0/U148/Y (XOR2X2_RVT)          0.12       0.78 f
+  mesi_isc_breq_fifos/fifo_0/U13/Y (INVX4_RVT)            0.03       0.81 r
+  mesi_isc_breq_fifos/fifo_0/U16/Y (AND2X1_RVT)           0.06       0.87 r
+  mesi_isc_breq_fifos/fifo_0/U164/Y (AO222X1_RVT)         0.13       1.00 r
+  mesi_isc_breq_fifos/fifo_0/data_o_reg_10_/D (SDFFARX1_RVT)
+                                                          0.00       1.00 r
+  data arrival time                                                  1.00
+
+  clock clk (rise edge)                                   1.00       1.00
+  clock network delay (ideal)                             0.10       1.10
+  inter-clock uncertainty                                -0.02       1.08
+  mesi_isc_breq_fifos/fifo_0/data_o_reg_10_/CLK (SDFFARX1_RVT)
+                                                          0.00       1.08 r
+  library setup time                                     -0.12       0.96
+  data required time                                                 0.96
+  --------------------------------------------------------------------------
+  data required time                                                 0.96
+  data arrival time                                                 -1.00
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.04
+
+
+1
+dc_shell> report_timing > rr.rpt
+dc_shell> 
+
+Thank you...

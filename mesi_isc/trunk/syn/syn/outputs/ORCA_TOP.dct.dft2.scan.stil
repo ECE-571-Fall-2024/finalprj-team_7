@@ -1,0 +1,1652 @@
+STIL 1.0 {
+    Design 2005;
+}
+Header {
+    Title "Minimal STIL for design `ORCA_TOP'";
+    Date "Sun May 19 19:51:42 2024";
+    Source "DFT Compiler V-2023.12-SP2";
+}
+Signals {
+    "ate_clk" In;
+    "occ_bypass" In;
+    "occ_reset" In;
+    "pad_in[0]" In;
+    "pad_in[10]" In;
+    "pad_in[11]" In;
+    "pad_in[12]" In;
+    "pad_in[13]" In;
+    "pad_in[14]" In;
+    "pad_in[15]" In;
+    "pad_in[16]" In;
+    "pad_in[17]" In;
+    "pad_in[18]" In;
+    "pad_in[19]" In;
+    "pad_in[1]" In;
+    "pad_in[20]" In;
+    "pad_in[21]" In;
+    "pad_in[22]" In;
+    "pad_in[23]" In;
+    "pad_in[24]" In;
+    "pad_in[25]" In;
+    "pad_in[26]" In;
+    "pad_in[27]" In;
+    "pad_in[28]" In;
+    "pad_in[29]" In;
+    "pad_in[2]" In;
+    "pad_in[30]" In;
+    "pad_in[31]" In;
+    "pad_in[3]" In;
+    "pad_in[4]" In;
+    "pad_in[5]" In;
+    "pad_in[6]" In;
+    "pad_in[7]" In;
+    "pad_in[8]" In;
+    "pad_in[9]" In;
+    "pc_be_in[0]" In;
+    "pc_be_in[1]" In;
+    "pc_be_in[2]" In;
+    "pc_be_in[3]" In;
+    "pclk" In;
+    "pdevsel_n_in" In;
+    "pframe_n_in" In;
+    "pgnt_n" In;
+    "pidsel" In;
+    "pirdy_n_in" In;
+    "pm66en" In;
+    "ppar_in" In;
+    "pperr_n_in" In;
+    "prst_n" In;
+    "pserr_n_in" In;
+    "pstop_n_in" In;
+    "ptrdy_n_in" In;
+    "scan_enable" In;
+    "sd_DQ_in[0]" In;
+    "sd_DQ_in[10]" In;
+    "sd_DQ_in[11]" In;
+    "sd_DQ_in[12]" In;
+    "sd_DQ_in[13]" In;
+    "sd_DQ_in[14]" In;
+    "sd_DQ_in[15]" In;
+    "sd_DQ_in[16]" In;
+    "sd_DQ_in[17]" In;
+    "sd_DQ_in[18]" In;
+    "sd_DQ_in[19]" In;
+    "sd_DQ_in[1]" In;
+    "sd_DQ_in[20]" In;
+    "sd_DQ_in[21]" In;
+    "sd_DQ_in[22]" In;
+    "sd_DQ_in[23]" In;
+    "sd_DQ_in[24]" In;
+    "sd_DQ_in[25]" In;
+    "sd_DQ_in[26]" In;
+    "sd_DQ_in[27]" In;
+    "sd_DQ_in[28]" In;
+    "sd_DQ_in[29]" In;
+    "sd_DQ_in[2]" In;
+    "sd_DQ_in[30]" In;
+    "sd_DQ_in[31]" In;
+    "sd_DQ_in[3]" In;
+    "sd_DQ_in[4]" In;
+    "sd_DQ_in[5]" In;
+    "sd_DQ_in[6]" In;
+    "sd_DQ_in[7]" In;
+    "sd_DQ_in[8]" In;
+    "sd_DQ_in[9]" In;
+    "sdram_clk" In;
+    "shutdown" In;
+    "sys_2x_clk" In;
+    "sys_clk" In;
+    "test_mode" In;
+    "test_si[0]" In;
+    "test_si[1]" In;
+    "test_si[2]" In;
+    "test_si[3]" In;
+    "test_si[4]" In;
+    "test_si[5]" In;
+    "pack_n" Out;
+    "pad_en" Out;
+    "pad_out[0]" Out;
+    "pad_out[10]" Out;
+    "pad_out[11]" Out;
+    "pad_out[12]" Out;
+    "pad_out[13]" Out;
+    "pad_out[14]" Out;
+    "pad_out[15]" Out;
+    "pad_out[16]" Out;
+    "pad_out[17]" Out;
+    "pad_out[18]" Out;
+    "pad_out[19]" Out;
+    "pad_out[1]" Out;
+    "pad_out[20]" Out;
+    "pad_out[21]" Out;
+    "pad_out[22]" Out;
+    "pad_out[23]" Out;
+    "pad_out[24]" Out;
+    "pad_out[25]" Out;
+    "pad_out[26]" Out;
+    "pad_out[27]" Out;
+    "pad_out[28]" Out;
+    "pad_out[29]" Out;
+    "pad_out[2]" Out;
+    "pad_out[30]" Out;
+    "pad_out[31]" Out;
+    "pad_out[3]" Out;
+    "pad_out[4]" Out;
+    "pad_out[5]" Out;
+    "pad_out[6]" Out;
+    "pad_out[7]" Out;
+    "pad_out[8]" Out;
+    "pad_out[9]" Out;
+    "pc_be_en" Out;
+    "pc_be_out[0]" Out;
+    "pc_be_out[1]" Out;
+    "pc_be_out[2]" Out;
+    "pc_be_out[3]" Out;
+    "pdevsel_n_en" Out;
+    "pdevsel_n_out" Out;
+    "pframe_n_en" Out;
+    "pframe_n_out" Out;
+    "pirdy_n_en" Out;
+    "pirdy_n_out" Out;
+    "ppar_en" Out;
+    "ppar_out" Out;
+    "pperr_n_en" Out;
+    "pperr_n_out" Out;
+    "preq_n" Out;
+    "pserr_n_en" Out;
+    "pserr_n_out" Out;
+    "pstop_n_en" Out;
+    "pstop_n_out" Out;
+    "ptrdy_n_en" Out;
+    "ptrdy_n_out" Out;
+    "sd_A[0]" Out;
+    "sd_A[1]" Out;
+    "sd_A[2]" Out;
+    "sd_A[3]" Out;
+    "sd_A[4]" Out;
+    "sd_A[5]" Out;
+    "sd_A[6]" Out;
+    "sd_A[7]" Out;
+    "sd_A[8]" Out;
+    "sd_A[9]" Out;
+    "sd_BWS[0]" Out;
+    "sd_BWS[1]" Out;
+    "sd_CK" Out;
+    "sd_CKn" Out;
+    "sd_DQ_en[0]" Out;
+    "sd_DQ_en[10]" Out;
+    "sd_DQ_en[11]" Out;
+    "sd_DQ_en[12]" Out;
+    "sd_DQ_en[13]" Out;
+    "sd_DQ_en[14]" Out;
+    "sd_DQ_en[15]" Out;
+    "sd_DQ_en[16]" Out;
+    "sd_DQ_en[17]" Out;
+    "sd_DQ_en[18]" Out;
+    "sd_DQ_en[19]" Out;
+    "sd_DQ_en[1]" Out;
+    "sd_DQ_en[20]" Out;
+    "sd_DQ_en[21]" Out;
+    "sd_DQ_en[22]" Out;
+    "sd_DQ_en[23]" Out;
+    "sd_DQ_en[24]" Out;
+    "sd_DQ_en[25]" Out;
+    "sd_DQ_en[26]" Out;
+    "sd_DQ_en[27]" Out;
+    "sd_DQ_en[28]" Out;
+    "sd_DQ_en[29]" Out;
+    "sd_DQ_en[2]" Out;
+    "sd_DQ_en[30]" Out;
+    "sd_DQ_en[31]" Out;
+    "sd_DQ_en[3]" Out;
+    "sd_DQ_en[4]" Out;
+    "sd_DQ_en[5]" Out;
+    "sd_DQ_en[6]" Out;
+    "sd_DQ_en[7]" Out;
+    "sd_DQ_en[8]" Out;
+    "sd_DQ_en[9]" Out;
+    "sd_DQ_out[0]" Out;
+    "sd_DQ_out[10]" Out;
+    "sd_DQ_out[11]" Out;
+    "sd_DQ_out[12]" Out;
+    "sd_DQ_out[13]" Out;
+    "sd_DQ_out[14]" Out;
+    "sd_DQ_out[15]" Out;
+    "sd_DQ_out[16]" Out;
+    "sd_DQ_out[17]" Out;
+    "sd_DQ_out[18]" Out;
+    "sd_DQ_out[19]" Out;
+    "sd_DQ_out[1]" Out;
+    "sd_DQ_out[20]" Out;
+    "sd_DQ_out[21]" Out;
+    "sd_DQ_out[22]" Out;
+    "sd_DQ_out[23]" Out;
+    "sd_DQ_out[24]" Out;
+    "sd_DQ_out[25]" Out;
+    "sd_DQ_out[26]" Out;
+    "sd_DQ_out[27]" Out;
+    "sd_DQ_out[28]" Out;
+    "sd_DQ_out[29]" Out;
+    "sd_DQ_out[2]" Out;
+    "sd_DQ_out[30]" Out;
+    "sd_DQ_out[31]" Out;
+    "sd_DQ_out[3]" Out;
+    "sd_DQ_out[4]" Out;
+    "sd_DQ_out[5]" Out;
+    "sd_DQ_out[6]" Out;
+    "sd_DQ_out[7]" Out;
+    "sd_DQ_out[8]" Out;
+    "sd_DQ_out[9]" Out;
+    "sd_LD" Out;
+    "sd_RW" Out;
+    "test_so[0]" Out;
+    "test_so[1]" Out;
+    "test_so[2]" Out;
+    "test_so[3]" Out;
+    "test_so[4]" Out;
+    "test_so[5]" Out;
+    "pll_bypass" In;
+    "pll_reset" In;
+    "test_si7" In;
+    "test_so7" Out;
+}
+SignalGroups {
+    "_si" = '"test_si[0]" + "test_si[1]" + "test_si[2]" + "test_si[3]" + 
+    "test_si[4]" + "test_si[5]" + "test_si7"' {
+        ScanIn;
+    }
+    "_so" = '"test_so[0]" + "test_so[1]" + "test_so[2]" + "test_so[3]" + 
+    "test_so[4]" + "test_so[5]" + "test_so7"' {
+        ScanOut;
+    }
+    "_clk" = '"ate_clk" + "pclk" + "prst_n" + "sdram_clk" + "sys_2x_clk" + 
+    "sys_clk"';
+    "all_inputs" = '"ate_clk" + "occ_bypass" + "occ_reset" + "pad_in[0]" + 
+    "pad_in[10]" + "pad_in[11]" + "pad_in[12]" + "pad_in[13]" + "pad_in[14]" + 
+    "pad_in[15]" + "pad_in[16]" + "pad_in[17]" + "pad_in[18]" + "pad_in[19]" + 
+    "pad_in[1]" + "pad_in[20]" + "pad_in[21]" + "pad_in[22]" + "pad_in[23]" + 
+    "pad_in[24]" + "pad_in[25]" + "pad_in[26]" + "pad_in[27]" + "pad_in[28]" + 
+    "pad_in[29]" + "pad_in[2]" + "pad_in[30]" + "pad_in[31]" + "pad_in[3]" + 
+    "pad_in[4]" + "pad_in[5]" + "pad_in[6]" + "pad_in[7]" + "pad_in[8]" + 
+    "pad_in[9]" + "pc_be_in[0]" + "pc_be_in[1]" + "pc_be_in[2]" + "pc_be_in[3]" 
+    + "pclk" + "pdevsel_n_in" + "pframe_n_in" + "pgnt_n" + "pidsel" + 
+    "pirdy_n_in" + "pm66en" + "ppar_in" + "pperr_n_in" + "prst_n" + "pserr_n_in" 
+    + "pstop_n_in" + "ptrdy_n_in" + "scan_enable" + "sd_DQ_in[0]" + 
+    "sd_DQ_in[10]" + "sd_DQ_in[11]" + "sd_DQ_in[12]" + "sd_DQ_in[13]" + 
+    "sd_DQ_in[14]" + "sd_DQ_in[15]" + "sd_DQ_in[16]" + "sd_DQ_in[17]" + 
+    "sd_DQ_in[18]" + "sd_DQ_in[19]" + "sd_DQ_in[1]" + "sd_DQ_in[20]" + 
+    "sd_DQ_in[21]" + "sd_DQ_in[22]" + "sd_DQ_in[23]" + "sd_DQ_in[24]" + 
+    "sd_DQ_in[25]" + "sd_DQ_in[26]" + "sd_DQ_in[27]" + "sd_DQ_in[28]" + 
+    "sd_DQ_in[29]" + "sd_DQ_in[2]" + "sd_DQ_in[30]" + "sd_DQ_in[31]" + 
+    "sd_DQ_in[3]" + "sd_DQ_in[4]" + "sd_DQ_in[5]" + "sd_DQ_in[6]" + 
+    "sd_DQ_in[7]" + "sd_DQ_in[8]" + "sd_DQ_in[9]" + "sdram_clk" + "shutdown" + 
+    "sys_2x_clk" + "sys_clk" + "test_mode" + "test_si[0]" + "test_si[1]" + 
+    "test_si[2]" + "test_si[3]" + "test_si[4]" + "test_si[5]" + "pll_bypass" + 
+    "pll_reset" + "test_si7"';
+    "all_outputs" = '"pack_n" + "pad_en" + "pad_out[0]" + "pad_out[10]" + 
+    "pad_out[11]" + "pad_out[12]" + "pad_out[13]" + "pad_out[14]" + 
+    "pad_out[15]" + "pad_out[16]" + "pad_out[17]" + "pad_out[18]" + 
+    "pad_out[19]" + "pad_out[1]" + "pad_out[20]" + "pad_out[21]" + "pad_out[22]" 
+    + "pad_out[23]" + "pad_out[24]" + "pad_out[25]" + "pad_out[26]" + 
+    "pad_out[27]" + "pad_out[28]" + "pad_out[29]" + "pad_out[2]" + "pad_out[30]" 
+    + "pad_out[31]" + "pad_out[3]" + "pad_out[4]" + "pad_out[5]" + "pad_out[6]" 
+    + "pad_out[7]" + "pad_out[8]" + "pad_out[9]" + "pc_be_en" + "pc_be_out[0]" + 
+    "pc_be_out[1]" + "pc_be_out[2]" + "pc_be_out[3]" + "pdevsel_n_en" + 
+    "pdevsel_n_out" + "pframe_n_en" + "pframe_n_out" + "pirdy_n_en" + 
+    "pirdy_n_out" + "ppar_en" + "ppar_out" + "pperr_n_en" + "pperr_n_out" + 
+    "preq_n" + "pserr_n_en" + "pserr_n_out" + "pstop_n_en" + "pstop_n_out" + 
+    "ptrdy_n_en" + "ptrdy_n_out" + "sd_A[0]" + "sd_A[1]" + "sd_A[2]" + "sd_A[3]" 
+    + "sd_A[4]" + "sd_A[5]" + "sd_A[6]" + "sd_A[7]" + "sd_A[8]" + "sd_A[9]" + 
+    "sd_BWS[0]" + "sd_BWS[1]" + "sd_CK" + "sd_CKn" + "sd_DQ_en[0]" + 
+    "sd_DQ_en[10]" + "sd_DQ_en[11]" + "sd_DQ_en[12]" + "sd_DQ_en[13]" + 
+    "sd_DQ_en[14]" + "sd_DQ_en[15]" + "sd_DQ_en[16]" + "sd_DQ_en[17]" + 
+    "sd_DQ_en[18]" + "sd_DQ_en[19]" + "sd_DQ_en[1]" + "sd_DQ_en[20]" + 
+    "sd_DQ_en[21]" + "sd_DQ_en[22]" + "sd_DQ_en[23]" + "sd_DQ_en[24]" + 
+    "sd_DQ_en[25]" + "sd_DQ_en[26]" + "sd_DQ_en[27]" + "sd_DQ_en[28]" + 
+    "sd_DQ_en[29]" + "sd_DQ_en[2]" + "sd_DQ_en[30]" + "sd_DQ_en[31]" + 
+    "sd_DQ_en[3]" + "sd_DQ_en[4]" + "sd_DQ_en[5]" + "sd_DQ_en[6]" + 
+    "sd_DQ_en[7]" + "sd_DQ_en[8]" + "sd_DQ_en[9]" + "sd_DQ_out[0]" + 
+    "sd_DQ_out[10]" + "sd_DQ_out[11]" + "sd_DQ_out[12]" + "sd_DQ_out[13]" + 
+    "sd_DQ_out[14]" + "sd_DQ_out[15]" + "sd_DQ_out[16]" + "sd_DQ_out[17]" + 
+    "sd_DQ_out[18]" + "sd_DQ_out[19]" + "sd_DQ_out[1]" + "sd_DQ_out[20]" + 
+    "sd_DQ_out[21]" + "sd_DQ_out[22]" + "sd_DQ_out[23]" + "sd_DQ_out[24]" + 
+    "sd_DQ_out[25]" + "sd_DQ_out[26]" + "sd_DQ_out[27]" + "sd_DQ_out[28]" + 
+    "sd_DQ_out[29]" + "sd_DQ_out[2]" + "sd_DQ_out[30]" + "sd_DQ_out[31]" + 
+    "sd_DQ_out[3]" + "sd_DQ_out[4]" + "sd_DQ_out[5]" + "sd_DQ_out[6]" + 
+    "sd_DQ_out[7]" + "sd_DQ_out[8]" + "sd_DQ_out[9]" + "sd_LD" + "sd_RW" + 
+    "test_so[0]" + "test_so[1]" + "test_so[2]" + "test_so[3]" + "test_so[4]" + 
+    "test_so[5]" + "test_so7"';
+    "all_ports" = '"all_inputs" + "all_outputs"';
+    "_pi" = '"ate_clk" + "occ_bypass" + "occ_reset" + "pad_in[0]" + "pad_in[10]" 
+    + "pad_in[11]" + "pad_in[12]" + "pad_in[13]" + "pad_in[14]" + "pad_in[15]" + 
+    "pad_in[16]" + "pad_in[17]" + "pad_in[18]" + "pad_in[19]" + "pad_in[1]" + 
+    "pad_in[20]" + "pad_in[21]" + "pad_in[22]" + "pad_in[23]" + "pad_in[24]" + 
+    "pad_in[25]" + "pad_in[26]" + "pad_in[27]" + "pad_in[28]" + "pad_in[29]" + 
+    "pad_in[2]" + "pad_in[30]" + "pad_in[31]" + "pad_in[3]" + "pad_in[4]" + 
+    "pad_in[5]" + "pad_in[6]" + "pad_in[7]" + "pad_in[8]" + "pad_in[9]" + 
+    "pc_be_in[0]" + "pc_be_in[1]" + "pc_be_in[2]" + "pc_be_in[3]" + "pclk" + 
+    "pdevsel_n_in" + "pframe_n_in" + "pgnt_n" + "pidsel" + "pirdy_n_in" + 
+    "pm66en" + "ppar_in" + "pperr_n_in" + "prst_n" + "pserr_n_in" + "pstop_n_in" 
+    + "ptrdy_n_in" + "scan_enable" + "sd_DQ_in[0]" + "sd_DQ_in[10]" + 
+    "sd_DQ_in[11]" + "sd_DQ_in[12]" + "sd_DQ_in[13]" + "sd_DQ_in[14]" + 
+    "sd_DQ_in[15]" + "sd_DQ_in[16]" + "sd_DQ_in[17]" + "sd_DQ_in[18]" + 
+    "sd_DQ_in[19]" + "sd_DQ_in[1]" + "sd_DQ_in[20]" + "sd_DQ_in[21]" + 
+    "sd_DQ_in[22]" + "sd_DQ_in[23]" + "sd_DQ_in[24]" + "sd_DQ_in[25]" + 
+    "sd_DQ_in[26]" + "sd_DQ_in[27]" + "sd_DQ_in[28]" + "sd_DQ_in[29]" + 
+    "sd_DQ_in[2]" + "sd_DQ_in[30]" + "sd_DQ_in[31]" + "sd_DQ_in[3]" + 
+    "sd_DQ_in[4]" + "sd_DQ_in[5]" + "sd_DQ_in[6]" + "sd_DQ_in[7]" + 
+    "sd_DQ_in[8]" + "sd_DQ_in[9]" + "sdram_clk" + "shutdown" + "sys_2x_clk" + 
+    "sys_clk" + "test_mode" + "test_si[0]" + "test_si[1]" + "test_si[2]" + 
+    "test_si[3]" + "test_si[4]" + "test_si[5]" + "pll_bypass" + "pll_reset" + 
+    "test_si7"';
+    "_po" = '"pack_n" + "pad_en" + "pad_out[0]" + "pad_out[10]" + "pad_out[11]" 
+    + "pad_out[12]" + "pad_out[13]" + "pad_out[14]" + "pad_out[15]" + 
+    "pad_out[16]" + "pad_out[17]" + "pad_out[18]" + "pad_out[19]" + "pad_out[1]" 
+    + "pad_out[20]" + "pad_out[21]" + "pad_out[22]" + "pad_out[23]" + 
+    "pad_out[24]" + "pad_out[25]" + "pad_out[26]" + "pad_out[27]" + 
+    "pad_out[28]" + "pad_out[29]" + "pad_out[2]" + "pad_out[30]" + "pad_out[31]" 
+    + "pad_out[3]" + "pad_out[4]" + "pad_out[5]" + "pad_out[6]" + "pad_out[7]" + 
+    "pad_out[8]" + "pad_out[9]" + "pc_be_en" + "pc_be_out[0]" + "pc_be_out[1]" + 
+    "pc_be_out[2]" + "pc_be_out[3]" + "pdevsel_n_en" + "pdevsel_n_out" + 
+    "pframe_n_en" + "pframe_n_out" + "pirdy_n_en" + "pirdy_n_out" + "ppar_en" + 
+    "ppar_out" + "pperr_n_en" + "pperr_n_out" + "preq_n" + "pserr_n_en" + 
+    "pserr_n_out" + "pstop_n_en" + "pstop_n_out" + "ptrdy_n_en" + "ptrdy_n_out" 
+    + "sd_A[0]" + "sd_A[1]" + "sd_A[2]" + "sd_A[3]" + "sd_A[4]" + "sd_A[5]" + 
+    "sd_A[6]" + "sd_A[7]" + "sd_A[8]" + "sd_A[9]" + "sd_BWS[0]" + "sd_BWS[1]" + 
+    "sd_CK" + "sd_CKn" + "sd_DQ_en[0]" + "sd_DQ_en[10]" + "sd_DQ_en[11]" + 
+    "sd_DQ_en[12]" + "sd_DQ_en[13]" + "sd_DQ_en[14]" + "sd_DQ_en[15]" + 
+    "sd_DQ_en[16]" + "sd_DQ_en[17]" + "sd_DQ_en[18]" + "sd_DQ_en[19]" + 
+    "sd_DQ_en[1]" + "sd_DQ_en[20]" + "sd_DQ_en[21]" + "sd_DQ_en[22]" + 
+    "sd_DQ_en[23]" + "sd_DQ_en[24]" + "sd_DQ_en[25]" + "sd_DQ_en[26]" + 
+    "sd_DQ_en[27]" + "sd_DQ_en[28]" + "sd_DQ_en[29]" + "sd_DQ_en[2]" + 
+    "sd_DQ_en[30]" + "sd_DQ_en[31]" + "sd_DQ_en[3]" + "sd_DQ_en[4]" + 
+    "sd_DQ_en[5]" + "sd_DQ_en[6]" + "sd_DQ_en[7]" + "sd_DQ_en[8]" + 
+    "sd_DQ_en[9]" + "sd_DQ_out[0]" + "sd_DQ_out[10]" + "sd_DQ_out[11]" + 
+    "sd_DQ_out[12]" + "sd_DQ_out[13]" + "sd_DQ_out[14]" + "sd_DQ_out[15]" + 
+    "sd_DQ_out[16]" + "sd_DQ_out[17]" + "sd_DQ_out[18]" + "sd_DQ_out[19]" + 
+    "sd_DQ_out[1]" + "sd_DQ_out[20]" + "sd_DQ_out[21]" + "sd_DQ_out[22]" + 
+    "sd_DQ_out[23]" + "sd_DQ_out[24]" + "sd_DQ_out[25]" + "sd_DQ_out[26]" + 
+    "sd_DQ_out[27]" + "sd_DQ_out[28]" + "sd_DQ_out[29]" + "sd_DQ_out[2]" + 
+    "sd_DQ_out[30]" + "sd_DQ_out[31]" + "sd_DQ_out[3]" + "sd_DQ_out[4]" + 
+    "sd_DQ_out[5]" + "sd_DQ_out[6]" + "sd_DQ_out[7]" + "sd_DQ_out[8]" + 
+    "sd_DQ_out[9]" + "sd_LD" + "sd_RW" + "test_so[0]" + "test_so[1]" + 
+    "test_so[2]" + "test_so[3]" + "test_so[4]" + "test_so[5]" + "test_so7"';
+}
+ScanStructures {
+    ScanChain "1" {
+        ScanLength 2;
+        ScanIn "test_si[0]";
+        ScanOut "test_so[0]";
+        ScanEnable "scan_enable";
+        ScanMasterClock "ate_clk";
+    }
+    ScanChain "2" {
+        ScanLength 6;
+        ScanIn "test_si[1]";
+        ScanOut "test_so[1]";
+        ScanEnable "scan_enable";
+        ScanMasterClock "ate_clk";
+    }
+    ScanChain "3" {
+        ScanLength 1691;
+        ScanIn "test_si[2]";
+        ScanOut "test_so[2]";
+        ScanEnable "scan_enable";
+        ScanMasterClock "sys_clk";
+    }
+    ScanChain "4" {
+        ScanLength 1464;
+        ScanIn "test_si[3]";
+        ScanOut "test_so[3]";
+        ScanEnable "scan_enable";
+        ScanMasterClock "ate_clk";
+    }
+    ScanChain "5" {
+        ScanLength 186;
+        ScanIn "test_si[4]";
+        ScanOut "test_so[4]";
+        ScanEnable "scan_enable";
+        ScanMasterClock "ate_clk";
+    }
+    ScanChain "6" {
+        ScanLength 390;
+        ScanIn "test_si[5]";
+        ScanOut "test_so[5]";
+        ScanEnable "scan_enable";
+        ScanMasterClock "ate_clk";
+    }
+    ScanChain "7" {
+        ScanLength 1375;
+        ScanIn "test_si7";
+        ScanOut "test_so7";
+        ScanEnable "scan_enable";
+        ScanMasterClock "ate_clk";
+    }
+}
+Timing {
+    WaveformTable "_default_WFT_" {
+        Period '100ns';
+        Waveforms {
+            "all_inputs" {
+                0 {
+                    '0ns' D;
+                }
+            }
+            "all_inputs" {
+                1 {
+                    '0ns' U;
+                }
+            }
+            "all_inputs" {
+                Z {
+                    '0ns' Z;
+                }
+            }
+            "all_inputs" {
+                N {
+                    '0ns' N;
+                }
+            }
+            "all_outputs" {
+                X {
+                    '0ns' X;
+                    '40ns' X;
+                }
+            }
+            "all_outputs" {
+                H {
+                    '0ns' X;
+                    '40ns' H;
+                }
+            }
+            "all_outputs" {
+                T {
+                    '0ns' X;
+                    '40ns' T;
+                }
+            }
+            "all_outputs" {
+                L {
+                    '0ns' X;
+                    '40ns' L;
+                }
+            }
+            "pclk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "sdram_clk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "sys_2x_clk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "prst_n" {
+                P {
+                    '0ns' U;
+                    '45ns' D;
+                    '55ns' U;
+                }
+            }
+            "ate_clk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "sys_clk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+        }
+    }
+    WaveformTable "_multiclock_capture_WFT_" {
+        Period '100ns';
+        Waveforms {
+            "all_inputs" {
+                0 {
+                    '0ns' D;
+                }
+            }
+            "all_inputs" {
+                1 {
+                    '0ns' U;
+                }
+            }
+            "all_inputs" {
+                Z {
+                    '0ns' Z;
+                }
+            }
+            "all_inputs" {
+                N {
+                    '0ns' N;
+                }
+            }
+            "all_outputs" {
+                X {
+                    '0ns' X;
+                    '40ns' X;
+                }
+            }
+            "all_outputs" {
+                H {
+                    '0ns' X;
+                    '40ns' H;
+                }
+            }
+            "all_outputs" {
+                T {
+                    '0ns' X;
+                    '40ns' T;
+                }
+            }
+            "all_outputs" {
+                L {
+                    '0ns' X;
+                    '40ns' L;
+                }
+            }
+            "sdram_clk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "sys_2x_clk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "ate_clk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "pclk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "sys_clk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "prst_n" {
+                P {
+                    '0ns' U;
+                    '45ns' D;
+                    '55ns' U;
+                }
+            }
+        }
+    }
+    WaveformTable "_allclock_capture_WFT_" {
+        Period '100ns';
+        Waveforms {
+            "all_inputs" {
+                0 {
+                    '0ns' D;
+                }
+            }
+            "all_inputs" {
+                1 {
+                    '0ns' U;
+                }
+            }
+            "all_inputs" {
+                Z {
+                    '0ns' Z;
+                }
+            }
+            "all_inputs" {
+                N {
+                    '0ns' N;
+                }
+            }
+            "all_outputs" {
+                X {
+                    '0ns' X;
+                    '40ns' X;
+                }
+            }
+            "all_outputs" {
+                H {
+                    '0ns' X;
+                    '40ns' H;
+                }
+            }
+            "all_outputs" {
+                T {
+                    '0ns' X;
+                    '40ns' T;
+                }
+            }
+            "all_outputs" {
+                L {
+                    '0ns' X;
+                    '40ns' L;
+                }
+            }
+            "sdram_clk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "sys_2x_clk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "ate_clk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "pclk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "sys_clk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "prst_n" {
+                P {
+                    '0ns' U;
+                    '45ns' D;
+                    '55ns' U;
+                }
+            }
+        }
+    }
+    WaveformTable "_allclock_launch_WFT_" {
+        Period '100ns';
+        Waveforms {
+            "all_inputs" {
+                0 {
+                    '0ns' D;
+                }
+            }
+            "all_inputs" {
+                1 {
+                    '0ns' U;
+                }
+            }
+            "all_inputs" {
+                Z {
+                    '0ns' Z;
+                }
+            }
+            "all_inputs" {
+                N {
+                    '0ns' N;
+                }
+            }
+            "all_outputs" {
+                X {
+                    '0ns' X;
+                    '40ns' X;
+                }
+            }
+            "all_outputs" {
+                H {
+                    '0ns' X;
+                    '40ns' H;
+                }
+            }
+            "all_outputs" {
+                T {
+                    '0ns' X;
+                    '40ns' T;
+                }
+            }
+            "all_outputs" {
+                L {
+                    '0ns' X;
+                    '40ns' L;
+                }
+            }
+            "sdram_clk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "sys_2x_clk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "ate_clk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "pclk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "sys_clk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "prst_n" {
+                P {
+                    '0ns' U;
+                    '45ns' D;
+                    '55ns' U;
+                }
+            }
+        }
+    }
+    WaveformTable "_allclock_launch_capture_WFT_" {
+        Period '100ns';
+        Waveforms {
+            "all_inputs" {
+                0 {
+                    '0ns' D;
+                }
+            }
+            "all_inputs" {
+                1 {
+                    '0ns' U;
+                }
+            }
+            "all_inputs" {
+                Z {
+                    '0ns' Z;
+                }
+            }
+            "all_inputs" {
+                N {
+                    '0ns' N;
+                }
+            }
+            "all_outputs" {
+                X {
+                    '0ns' X;
+                    '40ns' X;
+                }
+            }
+            "all_outputs" {
+                H {
+                    '0ns' X;
+                    '40ns' H;
+                }
+            }
+            "all_outputs" {
+                T {
+                    '0ns' X;
+                    '40ns' T;
+                }
+            }
+            "all_outputs" {
+                L {
+                    '0ns' X;
+                    '40ns' L;
+                }
+            }
+            "sdram_clk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "sys_2x_clk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "ate_clk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "pclk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "sys_clk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "prst_n" {
+                P {
+                    '0ns' U;
+                    '45ns' D;
+                    '55ns' U;
+                }
+            }
+        }
+    }
+}
+UserKeywords ClockStructures;
+PatternBurst Internal_scan {
+    Procedures Internal_scan;
+    MacroDefs Internal_scan;
+    ClockStructures Internal_scan;
+}
+PatternBurst Internal_scan_occ_bypass {
+    Procedures Internal_scan_occ_bypass;
+    MacroDefs Internal_scan_occ_bypass;
+}
+PatternExec Internal_scan {
+    PatternBurst Internal_scan;
+}
+PatternExec Internal_scan_occ_bypass {
+    PatternBurst Internal_scan_occ_bypass;
+}
+UserKeywords DontSimulate;
+ClockStructures Internal_scan {
+    PLLStructures "I_CLOCKING/occ_int1" {
+        PLLCycles 2;
+        Clocks {
+            "ate_clk" Reference;
+            "I_CLOCKING/sys_clk_in_reg/Q" PLL {
+                OffState 0;
+            }
+            "I_CLOCKING/occ_int1/U1/Y" Internal {
+                OffState 0;
+                PLLSource "I_CLOCKING/sys_clk_in_reg/Q";
+                Cycle 0 "I_CLOCKING/snps_clk_chain_0/clk_ctrl_data[0]" 1;
+                Cycle 1 "I_CLOCKING/snps_clk_chain_0/clk_ctrl_data[1]" 1;
+            }
+        }
+    }
+    PLLStructures "occ_int2" {
+        PLLCycles 2;
+        Clocks {
+            "ate_clk" Reference;
+            "occ_int2/fast_clk[2]" PLL {
+                OffState 0;
+            }
+            "occ_int2/fast_clk[1]" PLL {
+                OffState 0;
+            }
+            "occ_int2/fast_clk[0]" PLL {
+                OffState 0;
+            }
+            "occ_int2/U1/Y" Internal {
+                OffState 0;
+                PLLSource "occ_int2/fast_clk[2]";
+                Cycle 0 "snps_clk_chain_1/clk_ctrl_data[4]" 1;
+                Cycle 1 "snps_clk_chain_1/clk_ctrl_data[5]" 1;
+            }
+            "occ_int2/U2/Y" Internal {
+                OffState 0;
+                PLLSource "occ_int2/fast_clk[1]";
+                Cycle 0 "snps_clk_chain_1/clk_ctrl_data[2]" 1;
+                Cycle 1 "snps_clk_chain_1/clk_ctrl_data[3]" 1;
+            }
+            "occ_int2/U3/Y" Internal {
+                OffState 0;
+                PLLSource "occ_int2/fast_clk[0]";
+                Cycle 0 "snps_clk_chain_1/clk_ctrl_data[0]" 1;
+                Cycle 1 "snps_clk_chain_1/clk_ctrl_data[1]" 1;
+            }
+        }
+    }
+}
+Procedures Internal_scan {
+    "multiclock_capture" {
+        W "_multiclock_capture_WFT_";
+        C {
+            "all_inputs" = 0 \r38 N 0 \r8 N 1NNN0 \r32 N 0N001 \r6 N 10N;
+            "all_outputs" = \r143 X;
+        }
+        F {
+            "ate_clk" = P;
+            "scan_enable" = 0;
+            "test_mode" = 1;
+            "pll_bypass" = 0;
+            "pll_reset" = 0;
+        }
+        V {
+            "_pi" = \r99 #;
+            "_po" = \r143 #;
+        }
+    }
+    "allclock_capture" {
+        W "_allclock_capture_WFT_";
+        C {
+            "all_inputs" = 0 \r38 N 0 \r8 N 1NNN0 \r32 N 0N001 \r6 N 10N;
+            "all_outputs" = \r143 X;
+        }
+        F {
+            "ate_clk" = P;
+            "scan_enable" = 0;
+            "test_mode" = 1;
+            "pll_bypass" = 0;
+            "pll_reset" = 0;
+        }
+        V {
+            "_pi" = \r99 #;
+            "_po" = \r143 #;
+        }
+    }
+    "allclock_launch" {
+        W "_allclock_launch_WFT_";
+        C {
+            "all_inputs" = 0 \r38 N 0 \r8 N 1NNN0 \r32 N 0N001 \r6 N 10N;
+            "all_outputs" = \r143 X;
+        }
+        F {
+            "ate_clk" = P;
+            "scan_enable" = 0;
+            "test_mode" = 1;
+            "pll_bypass" = 0;
+            "pll_reset" = 0;
+        }
+        V {
+            "_pi" = \r99 #;
+            "_po" = \r143 #;
+        }
+    }
+    "allclock_launch_capture" {
+        W "_allclock_launch_capture_WFT_";
+        C {
+            "all_inputs" = 0 \r38 N 0 \r8 N 1NNN0 \r32 N 0N001 \r6 N 10N;
+            "all_outputs" = \r143 X;
+        }
+        F {
+            "ate_clk" = P;
+            "scan_enable" = 0;
+            "test_mode" = 1;
+            "pll_bypass" = 0;
+            "pll_reset" = 0;
+        }
+        V {
+            "_pi" = \r99 #;
+            "_po" = \r143 #;
+        }
+    }
+    "load_unload" {
+        W "_default_WFT_";
+        C {
+            "ate_clk" = 0;
+            "occ_bypass" = N;
+            "occ_reset" = N;
+            "pad_in[0]" = N;
+            "pad_in[10]" = N;
+            "pad_in[11]" = N;
+            "pad_in[12]" = N;
+            "pad_in[13]" = N;
+            "pad_in[14]" = N;
+            "pad_in[15]" = N;
+            "pad_in[16]" = N;
+            "pad_in[17]" = N;
+            "pad_in[18]" = N;
+            "pad_in[19]" = N;
+            "pad_in[1]" = N;
+            "pad_in[20]" = N;
+            "pad_in[21]" = N;
+            "pad_in[22]" = N;
+            "pad_in[23]" = N;
+            "pad_in[24]" = N;
+            "pad_in[25]" = N;
+            "pad_in[26]" = N;
+            "pad_in[27]" = N;
+            "pad_in[28]" = N;
+            "pad_in[29]" = N;
+            "pad_in[2]" = N;
+            "pad_in[30]" = N;
+            "pad_in[31]" = N;
+            "pad_in[3]" = N;
+            "pad_in[4]" = N;
+            "pad_in[5]" = N;
+            "pad_in[6]" = N;
+            "pad_in[7]" = N;
+            "pad_in[8]" = N;
+            "pad_in[9]" = N;
+            "pc_be_in[0]" = N;
+            "pc_be_in[1]" = N;
+            "pc_be_in[2]" = N;
+            "pc_be_in[3]" = N;
+            "pclk" = 0;
+            "pdevsel_n_in" = N;
+            "pframe_n_in" = N;
+            "pgnt_n" = N;
+            "pidsel" = N;
+            "pirdy_n_in" = N;
+            "pm66en" = N;
+            "ppar_in" = N;
+            "pperr_n_in" = N;
+            "prst_n" = 1;
+            "pserr_n_in" = N;
+            "pstop_n_in" = N;
+            "ptrdy_n_in" = N;
+            "scan_enable" = 0;
+            "sd_DQ_in[0]" = N;
+            "sd_DQ_in[10]" = N;
+            "sd_DQ_in[11]" = N;
+            "sd_DQ_in[12]" = N;
+            "sd_DQ_in[13]" = N;
+            "sd_DQ_in[14]" = N;
+            "sd_DQ_in[15]" = N;
+            "sd_DQ_in[16]" = N;
+            "sd_DQ_in[17]" = N;
+            "sd_DQ_in[18]" = N;
+            "sd_DQ_in[19]" = N;
+            "sd_DQ_in[1]" = N;
+            "sd_DQ_in[20]" = N;
+            "sd_DQ_in[21]" = N;
+            "sd_DQ_in[22]" = N;
+            "sd_DQ_in[23]" = N;
+            "sd_DQ_in[24]" = N;
+            "sd_DQ_in[25]" = N;
+            "sd_DQ_in[26]" = N;
+            "sd_DQ_in[27]" = N;
+            "sd_DQ_in[28]" = N;
+            "sd_DQ_in[29]" = N;
+            "sd_DQ_in[2]" = N;
+            "sd_DQ_in[30]" = N;
+            "sd_DQ_in[31]" = N;
+            "sd_DQ_in[3]" = N;
+            "sd_DQ_in[4]" = N;
+            "sd_DQ_in[5]" = N;
+            "sd_DQ_in[6]" = N;
+            "sd_DQ_in[7]" = N;
+            "sd_DQ_in[8]" = N;
+            "sd_DQ_in[9]" = N;
+            "sdram_clk" = 0;
+            "shutdown" = N;
+            "sys_2x_clk" = 0;
+            "sys_clk" = 0;
+            "test_mode" = 1;
+            "test_si[0]" = N;
+            "test_si[1]" = N;
+            "test_si[2]" = N;
+            "test_si[3]" = N;
+            "test_si[4]" = N;
+            "test_si[5]" = N;
+            "pack_n" = X;
+            "pad_en" = X;
+            "pad_out[0]" = X;
+            "pad_out[10]" = X;
+            "pad_out[11]" = X;
+            "pad_out[12]" = X;
+            "pad_out[13]" = X;
+            "pad_out[14]" = X;
+            "pad_out[15]" = X;
+            "pad_out[16]" = X;
+            "pad_out[17]" = X;
+            "pad_out[18]" = X;
+            "pad_out[19]" = X;
+            "pad_out[1]" = X;
+            "pad_out[20]" = X;
+            "pad_out[21]" = X;
+            "pad_out[22]" = X;
+            "pad_out[23]" = X;
+            "pad_out[24]" = X;
+            "pad_out[25]" = X;
+            "pad_out[26]" = X;
+            "pad_out[27]" = X;
+            "pad_out[28]" = X;
+            "pad_out[29]" = X;
+            "pad_out[2]" = X;
+            "pad_out[30]" = X;
+            "pad_out[31]" = X;
+            "pad_out[3]" = X;
+            "pad_out[4]" = X;
+            "pad_out[5]" = X;
+            "pad_out[6]" = X;
+            "pad_out[7]" = X;
+            "pad_out[8]" = X;
+            "pad_out[9]" = X;
+            "pc_be_en" = X;
+            "pc_be_out[0]" = X;
+            "pc_be_out[1]" = X;
+            "pc_be_out[2]" = X;
+            "pc_be_out[3]" = X;
+            "pdevsel_n_en" = X;
+            "pdevsel_n_out" = X;
+            "pframe_n_en" = X;
+            "pframe_n_out" = X;
+            "pirdy_n_en" = X;
+            "pirdy_n_out" = X;
+            "ppar_en" = X;
+            "ppar_out" = X;
+            "pperr_n_en" = X;
+            "pperr_n_out" = X;
+            "preq_n" = X;
+            "pserr_n_en" = X;
+            "pserr_n_out" = X;
+            "pstop_n_en" = X;
+            "pstop_n_out" = X;
+            "ptrdy_n_en" = X;
+            "ptrdy_n_out" = X;
+            "sd_A[0]" = X;
+            "sd_A[1]" = X;
+            "sd_A[2]" = X;
+            "sd_A[3]" = X;
+            "sd_A[4]" = X;
+            "sd_A[5]" = X;
+            "sd_A[6]" = X;
+            "sd_A[7]" = X;
+            "sd_A[8]" = X;
+            "sd_A[9]" = X;
+            "sd_BWS[0]" = X;
+            "sd_BWS[1]" = X;
+            "sd_CK" = X;
+            "sd_CKn" = X;
+            "sd_DQ_en[0]" = X;
+            "sd_DQ_en[10]" = X;
+            "sd_DQ_en[11]" = X;
+            "sd_DQ_en[12]" = X;
+            "sd_DQ_en[13]" = X;
+            "sd_DQ_en[14]" = X;
+            "sd_DQ_en[15]" = X;
+            "sd_DQ_en[16]" = X;
+            "sd_DQ_en[17]" = X;
+            "sd_DQ_en[18]" = X;
+            "sd_DQ_en[19]" = X;
+            "sd_DQ_en[1]" = X;
+            "sd_DQ_en[20]" = X;
+            "sd_DQ_en[21]" = X;
+            "sd_DQ_en[22]" = X;
+            "sd_DQ_en[23]" = X;
+            "sd_DQ_en[24]" = X;
+            "sd_DQ_en[25]" = X;
+            "sd_DQ_en[26]" = X;
+            "sd_DQ_en[27]" = X;
+            "sd_DQ_en[28]" = X;
+            "sd_DQ_en[29]" = X;
+            "sd_DQ_en[2]" = X;
+            "sd_DQ_en[30]" = X;
+            "sd_DQ_en[31]" = X;
+            "sd_DQ_en[3]" = X;
+            "sd_DQ_en[4]" = X;
+            "sd_DQ_en[5]" = X;
+            "sd_DQ_en[6]" = X;
+            "sd_DQ_en[7]" = X;
+            "sd_DQ_en[8]" = X;
+            "sd_DQ_en[9]" = X;
+            "sd_DQ_out[0]" = X;
+            "sd_DQ_out[10]" = X;
+            "sd_DQ_out[11]" = X;
+            "sd_DQ_out[12]" = X;
+            "sd_DQ_out[13]" = X;
+            "sd_DQ_out[14]" = X;
+            "sd_DQ_out[15]" = X;
+            "sd_DQ_out[16]" = X;
+            "sd_DQ_out[17]" = X;
+            "sd_DQ_out[18]" = X;
+            "sd_DQ_out[19]" = X;
+            "sd_DQ_out[1]" = X;
+            "sd_DQ_out[20]" = X;
+            "sd_DQ_out[21]" = X;
+            "sd_DQ_out[22]" = X;
+            "sd_DQ_out[23]" = X;
+            "sd_DQ_out[24]" = X;
+            "sd_DQ_out[25]" = X;
+            "sd_DQ_out[26]" = X;
+            "sd_DQ_out[27]" = X;
+            "sd_DQ_out[28]" = X;
+            "sd_DQ_out[29]" = X;
+            "sd_DQ_out[2]" = X;
+            "sd_DQ_out[30]" = X;
+            "sd_DQ_out[31]" = X;
+            "sd_DQ_out[3]" = X;
+            "sd_DQ_out[4]" = X;
+            "sd_DQ_out[5]" = X;
+            "sd_DQ_out[6]" = X;
+            "sd_DQ_out[7]" = X;
+            "sd_DQ_out[8]" = X;
+            "sd_DQ_out[9]" = X;
+            "sd_LD" = X;
+            "sd_RW" = X;
+            "test_so[0]" = X;
+            "test_so[1]" = X;
+            "test_so[2]" = X;
+            "test_so[3]" = X;
+            "test_so[4]" = X;
+            "test_so[5]" = X;
+            "pll_bypass" = 0;
+            "pll_reset" = 0;
+            "test_si7" = N;
+            "test_so7" = X;
+        }
+        "Internal_scan_pre_shift" : V {
+            "_clk" = P01000;
+            "scan_enable" = 1;
+        }
+        Shift {
+            V {
+                "_clk" = PP1PPP;
+                "_si" = \r7 #;
+                "_so" = \r7 #;
+            }
+        }
+    }
+}
+Procedures Internal_scan_occ_bypass {
+    "multiclock_capture" {
+        W "_multiclock_capture_WFT_";
+        C {
+            "all_inputs" = 0 \r38 N 0 \r8 N 1NNN0 \r32 N 0N001 \r6 N 10N;
+            "all_outputs" = \r143 X;
+        }
+        F {
+            "test_mode" = 1;
+            "pll_bypass" = 1;
+            "pll_reset" = 0;
+        }
+        V {
+            "_pi" = \r99 #;
+            "_po" = \r143 #;
+        }
+    }
+    "allclock_capture" {
+        W "_allclock_capture_WFT_";
+        C {
+            "all_inputs" = 0 \r38 N 0 \r8 N 1NNN0 \r32 N 0N001 \r6 N 10N;
+            "all_outputs" = \r143 X;
+        }
+        F {
+            "test_mode" = 1;
+            "pll_bypass" = 1;
+            "pll_reset" = 0;
+        }
+        V {
+            "_pi" = \r99 #;
+            "_po" = \r143 #;
+        }
+    }
+    "allclock_launch" {
+        W "_allclock_launch_WFT_";
+        C {
+            "all_inputs" = 0 \r38 N 0 \r8 N 1NNN0 \r32 N 0N001 \r6 N 10N;
+            "all_outputs" = \r143 X;
+        }
+        F {
+            "test_mode" = 1;
+            "pll_bypass" = 1;
+            "pll_reset" = 0;
+        }
+        V {
+            "_pi" = \r99 #;
+            "_po" = \r143 #;
+        }
+    }
+    "allclock_launch_capture" {
+        W "_allclock_launch_capture_WFT_";
+        C {
+            "all_inputs" = 0 \r38 N 0 \r8 N 1NNN0 \r32 N 0N001 \r6 N 10N;
+            "all_outputs" = \r143 X;
+        }
+        F {
+            "test_mode" = 1;
+            "pll_bypass" = 1;
+            "pll_reset" = 0;
+        }
+        V {
+            "_pi" = \r99 #;
+            "_po" = \r143 #;
+        }
+    }
+    "load_unload" {
+        W "_default_WFT_";
+        C {
+            "ate_clk" = 0;
+            "occ_bypass" = N;
+            "occ_reset" = N;
+            "pad_in[0]" = N;
+            "pad_in[10]" = N;
+            "pad_in[11]" = N;
+            "pad_in[12]" = N;
+            "pad_in[13]" = N;
+            "pad_in[14]" = N;
+            "pad_in[15]" = N;
+            "pad_in[16]" = N;
+            "pad_in[17]" = N;
+            "pad_in[18]" = N;
+            "pad_in[19]" = N;
+            "pad_in[1]" = N;
+            "pad_in[20]" = N;
+            "pad_in[21]" = N;
+            "pad_in[22]" = N;
+            "pad_in[23]" = N;
+            "pad_in[24]" = N;
+            "pad_in[25]" = N;
+            "pad_in[26]" = N;
+            "pad_in[27]" = N;
+            "pad_in[28]" = N;
+            "pad_in[29]" = N;
+            "pad_in[2]" = N;
+            "pad_in[30]" = N;
+            "pad_in[31]" = N;
+            "pad_in[3]" = N;
+            "pad_in[4]" = N;
+            "pad_in[5]" = N;
+            "pad_in[6]" = N;
+            "pad_in[7]" = N;
+            "pad_in[8]" = N;
+            "pad_in[9]" = N;
+            "pc_be_in[0]" = N;
+            "pc_be_in[1]" = N;
+            "pc_be_in[2]" = N;
+            "pc_be_in[3]" = N;
+            "pclk" = 0;
+            "pdevsel_n_in" = N;
+            "pframe_n_in" = N;
+            "pgnt_n" = N;
+            "pidsel" = N;
+            "pirdy_n_in" = N;
+            "pm66en" = N;
+            "ppar_in" = N;
+            "pperr_n_in" = N;
+            "prst_n" = 1;
+            "pserr_n_in" = N;
+            "pstop_n_in" = N;
+            "ptrdy_n_in" = N;
+            "scan_enable" = 0;
+            "sd_DQ_in[0]" = N;
+            "sd_DQ_in[10]" = N;
+            "sd_DQ_in[11]" = N;
+            "sd_DQ_in[12]" = N;
+            "sd_DQ_in[13]" = N;
+            "sd_DQ_in[14]" = N;
+            "sd_DQ_in[15]" = N;
+            "sd_DQ_in[16]" = N;
+            "sd_DQ_in[17]" = N;
+            "sd_DQ_in[18]" = N;
+            "sd_DQ_in[19]" = N;
+            "sd_DQ_in[1]" = N;
+            "sd_DQ_in[20]" = N;
+            "sd_DQ_in[21]" = N;
+            "sd_DQ_in[22]" = N;
+            "sd_DQ_in[23]" = N;
+            "sd_DQ_in[24]" = N;
+            "sd_DQ_in[25]" = N;
+            "sd_DQ_in[26]" = N;
+            "sd_DQ_in[27]" = N;
+            "sd_DQ_in[28]" = N;
+            "sd_DQ_in[29]" = N;
+            "sd_DQ_in[2]" = N;
+            "sd_DQ_in[30]" = N;
+            "sd_DQ_in[31]" = N;
+            "sd_DQ_in[3]" = N;
+            "sd_DQ_in[4]" = N;
+            "sd_DQ_in[5]" = N;
+            "sd_DQ_in[6]" = N;
+            "sd_DQ_in[7]" = N;
+            "sd_DQ_in[8]" = N;
+            "sd_DQ_in[9]" = N;
+            "sdram_clk" = 0;
+            "shutdown" = N;
+            "sys_2x_clk" = 0;
+            "sys_clk" = 0;
+            "test_mode" = 1;
+            "test_si[0]" = N;
+            "test_si[1]" = N;
+            "test_si[2]" = N;
+            "test_si[3]" = N;
+            "test_si[4]" = N;
+            "test_si[5]" = N;
+            "pack_n" = X;
+            "pad_en" = X;
+            "pad_out[0]" = X;
+            "pad_out[10]" = X;
+            "pad_out[11]" = X;
+            "pad_out[12]" = X;
+            "pad_out[13]" = X;
+            "pad_out[14]" = X;
+            "pad_out[15]" = X;
+            "pad_out[16]" = X;
+            "pad_out[17]" = X;
+            "pad_out[18]" = X;
+            "pad_out[19]" = X;
+            "pad_out[1]" = X;
+            "pad_out[20]" = X;
+            "pad_out[21]" = X;
+            "pad_out[22]" = X;
+            "pad_out[23]" = X;
+            "pad_out[24]" = X;
+            "pad_out[25]" = X;
+            "pad_out[26]" = X;
+            "pad_out[27]" = X;
+            "pad_out[28]" = X;
+            "pad_out[29]" = X;
+            "pad_out[2]" = X;
+            "pad_out[30]" = X;
+            "pad_out[31]" = X;
+            "pad_out[3]" = X;
+            "pad_out[4]" = X;
+            "pad_out[5]" = X;
+            "pad_out[6]" = X;
+            "pad_out[7]" = X;
+            "pad_out[8]" = X;
+            "pad_out[9]" = X;
+            "pc_be_en" = X;
+            "pc_be_out[0]" = X;
+            "pc_be_out[1]" = X;
+            "pc_be_out[2]" = X;
+            "pc_be_out[3]" = X;
+            "pdevsel_n_en" = X;
+            "pdevsel_n_out" = X;
+            "pframe_n_en" = X;
+            "pframe_n_out" = X;
+            "pirdy_n_en" = X;
+            "pirdy_n_out" = X;
+            "ppar_en" = X;
+            "ppar_out" = X;
+            "pperr_n_en" = X;
+            "pperr_n_out" = X;
+            "preq_n" = X;
+            "pserr_n_en" = X;
+            "pserr_n_out" = X;
+            "pstop_n_en" = X;
+            "pstop_n_out" = X;
+            "ptrdy_n_en" = X;
+            "ptrdy_n_out" = X;
+            "sd_A[0]" = X;
+            "sd_A[1]" = X;
+            "sd_A[2]" = X;
+            "sd_A[3]" = X;
+            "sd_A[4]" = X;
+            "sd_A[5]" = X;
+            "sd_A[6]" = X;
+            "sd_A[7]" = X;
+            "sd_A[8]" = X;
+            "sd_A[9]" = X;
+            "sd_BWS[0]" = X;
+            "sd_BWS[1]" = X;
+            "sd_CK" = X;
+            "sd_CKn" = X;
+            "sd_DQ_en[0]" = X;
+            "sd_DQ_en[10]" = X;
+            "sd_DQ_en[11]" = X;
+            "sd_DQ_en[12]" = X;
+            "sd_DQ_en[13]" = X;
+            "sd_DQ_en[14]" = X;
+            "sd_DQ_en[15]" = X;
+            "sd_DQ_en[16]" = X;
+            "sd_DQ_en[17]" = X;
+            "sd_DQ_en[18]" = X;
+            "sd_DQ_en[19]" = X;
+            "sd_DQ_en[1]" = X;
+            "sd_DQ_en[20]" = X;
+            "sd_DQ_en[21]" = X;
+            "sd_DQ_en[22]" = X;
+            "sd_DQ_en[23]" = X;
+            "sd_DQ_en[24]" = X;
+            "sd_DQ_en[25]" = X;
+            "sd_DQ_en[26]" = X;
+            "sd_DQ_en[27]" = X;
+            "sd_DQ_en[28]" = X;
+            "sd_DQ_en[29]" = X;
+            "sd_DQ_en[2]" = X;
+            "sd_DQ_en[30]" = X;
+            "sd_DQ_en[31]" = X;
+            "sd_DQ_en[3]" = X;
+            "sd_DQ_en[4]" = X;
+            "sd_DQ_en[5]" = X;
+            "sd_DQ_en[6]" = X;
+            "sd_DQ_en[7]" = X;
+            "sd_DQ_en[8]" = X;
+            "sd_DQ_en[9]" = X;
+            "sd_DQ_out[0]" = X;
+            "sd_DQ_out[10]" = X;
+            "sd_DQ_out[11]" = X;
+            "sd_DQ_out[12]" = X;
+            "sd_DQ_out[13]" = X;
+            "sd_DQ_out[14]" = X;
+            "sd_DQ_out[15]" = X;
+            "sd_DQ_out[16]" = X;
+            "sd_DQ_out[17]" = X;
+            "sd_DQ_out[18]" = X;
+            "sd_DQ_out[19]" = X;
+            "sd_DQ_out[1]" = X;
+            "sd_DQ_out[20]" = X;
+            "sd_DQ_out[21]" = X;
+            "sd_DQ_out[22]" = X;
+            "sd_DQ_out[23]" = X;
+            "sd_DQ_out[24]" = X;
+            "sd_DQ_out[25]" = X;
+            "sd_DQ_out[26]" = X;
+            "sd_DQ_out[27]" = X;
+            "sd_DQ_out[28]" = X;
+            "sd_DQ_out[29]" = X;
+            "sd_DQ_out[2]" = X;
+            "sd_DQ_out[30]" = X;
+            "sd_DQ_out[31]" = X;
+            "sd_DQ_out[3]" = X;
+            "sd_DQ_out[4]" = X;
+            "sd_DQ_out[5]" = X;
+            "sd_DQ_out[6]" = X;
+            "sd_DQ_out[7]" = X;
+            "sd_DQ_out[8]" = X;
+            "sd_DQ_out[9]" = X;
+            "sd_LD" = X;
+            "sd_RW" = X;
+            "test_so[0]" = X;
+            "test_so[1]" = X;
+            "test_so[2]" = X;
+            "test_so[3]" = X;
+            "test_so[4]" = X;
+            "test_so[5]" = X;
+            "pll_bypass" = 1;
+            "pll_reset" = 0;
+            "test_si7" = N;
+            "test_so7" = X;
+        }
+        "Internal_scan_occ_bypass_pre_shift" : V {
+            "scan_enable" = 1;
+        }
+        Shift {
+            V {
+                "_clk" = PP1PPP;
+                "_si" = \r7 #;
+                "_so" = \r7 #;
+            }
+        }
+    }
+}
+MacroDefs Internal_scan {
+    "test_setup" {
+        W "_default_WFT_";
+        C {
+            "all_inputs" = \r99 N;
+            "all_outputs" = \r143 X;
+        }
+        V {
+            "ate_clk" = P;
+            "pclk" = 0;
+            "prst_n" = 1;
+            "sdram_clk" = 0;
+            "sys_2x_clk" = 0;
+            "sys_clk" = 0;
+            "test_mode" = 1;
+            "pll_reset" = 1;
+        }
+        V {
+            "scan_enable" = 0;
+            "pll_bypass" = 0;
+            "pll_reset" = 0;
+        }
+    }
+}
+MacroDefs Internal_scan_occ_bypass {
+    "test_setup" {
+        W "_default_WFT_";
+        C {
+            "all_inputs" = \r99 N;
+            "all_outputs" = \r143 X;
+        }
+        V {
+            "ate_clk" = 0;
+            "pclk" = 0;
+            "prst_n" = 1;
+            "sdram_clk" = 0;
+            "sys_2x_clk" = 0;
+            "sys_clk" = 0;
+            "test_mode" = 1;
+        }
+        V {
+            "scan_enable" = 0;
+            "pll_bypass" = 1;
+            "pll_reset" = 0;
+        }
+    }
+}
+

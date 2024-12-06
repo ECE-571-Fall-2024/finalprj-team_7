@@ -1,0 +1,586 @@
+setting auto_restore_mw_cel_lib_setup true
+dc_shell> set top_design mesi_isc
+mesi_isc
+dc_shell> source ../scripts/dc.tcl
+set lib_dir /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib
+set hack_lef_dir /u/bcruik2/hacked_lefs
+/u/bcruik2/hacked_lefs
+# Decoder ring for the libraries
+# You will need to follow another example or look in the library directories to understand.
+# lib_types is used for the dc/dct linking variables and ICC2 NDM lcoations.
+# /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm
+# /          $lib_dir                   /lib/ $lib_type /db_nldm
+# link_library, Target_library use the sub_lib_types and corner variables. 
+# For sub_lib_types and corner:
+# Example:
+#     saed32hvt_ss0p75v125c.db
+#     |sub_lib  corner    .db
+# The current flow tries to find all sub_lib and all corners in all the search paths.  Any match will be put in the library list.
+# Wild cards can be used, but be careful.  Multiple matches can occur in ways you don't want.
+# For the target library, the same method is used as the link library except only HVT and RVT lib_types are used.
+# ICC2 NDM choosing also uses the sub_lib_types so that only the required libraries and extras are not loaded.
+# fifo1
+#set top_design fifo1
+set add_ios 1
+1
+set pad_design 1
+1
+set design_size { 580 580  } 
+ 580 580  
+set design_io_border 310
+310
+set dc_floorplanning 1
+1
+set enable_dft 0
+0
+set innovus_enable_manual_macro_placement 0
+0
+set rtl_list [list ../../syn/rtl/$top_design.sv ]
+../../syn/rtl/mesi_isc.sv
+set slow_corner "ss0p95v125c_2p25v ss0p95v125c"
+ss0p95v125c_2p25v ss0p95v125c
+set fast_corner "ff0p95vn40c ff1p16vn40c_2p75v ff1p16vn40c"
+ff0p95vn40c ff1p16vn40c_2p75v ff1p16vn40c
+set synth_corners $slow_corner
+ss0p95v125c_2p25v ss0p95v125c
+set synth_corners_target "ss0p95v125c" 
+ss0p95v125c
+#set synth_corners_target "ss0p95v125c" 
+set synth_corners_slow $slow_corner
+ss0p95v125c_2p25v ss0p95v125c
+set synth_corners_fast $fast_corner
+ff0p95vn40c ff1p16vn40c_2p75v ff1p16vn40c
+set slow_metal Cmax_125
+Cmax_125
+set fast_metal Cmax_125
+Cmax_125
+set lib_types "$lib_dir/stdcell_rvt/db_nldm $lib_dir/stdcell_hvt/db_nldm $lib_dir/io_std/db_nldm $lib_dir/sram/db_nldm $lib_dir/pll/db_nldm"
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm
+set ndm_types "$lib_dir/stdcell_rvt/ndm $lib_dir/stdcell_hvt/ndm $lib_dir/sram/ndm $lib_dir/io_std/ndm  $lib_dir/pll/ndm"
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/ndm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/ndm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/ndm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/ndm  /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/ndm
+set lib_types_target "$lib_dir/stdcell_rvt/db_nldm"
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm
+# Get just the main standard cells, srams and IOs
+set sub_lib_type "saed32?vt_ saed32sram_ saed32io_wb_ saed32pll_"
+saed32?vt_ saed32sram_ saed32io_wb_ saed32pll_
+set sub_lib_type_target "saed32rvt_"
+saed32rvt_
+set tech_lef ${hack_lef_dir}/tech.lef 
+/u/bcruik2/hacked_lefs/tech.lef
+# set tech_lef ../../cadence_cap_tech/tech.lef
+set lef_types [list $hack_lef_dir  $lib_dir/sram/lef/ $lib_dir/io_std/lef $lib_dir/pll/lef ]
+/u/bcruik2/hacked_lefs /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/lef/ /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/lef /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/lef
+#set lef_types [list $lib_dir/stdcell_hvt/lef  $lib_dir/stdcell_rvt/lef $lib_dir/stdcell_lvt/lef $lib_dir/sram/lef $lib_dir/io_std/lef $lib_dir/pll/lef ]
+set sub_lef_type "saed32nm_?vt_*.lef saed32sram.lef saed32_io_wb_all.lef saed32_PLL.lef"
+saed32nm_?vt_*.lef saed32sram.lef saed32_io_wb_all.lef saed32_PLL.lef
+set mwlib_types [list $lib_dir/stdcell_hvt/milkyway $lib_dir/stdcell_rvt/milkyway $lib_dir/stdcell_lvt/milkyway  $lib_dir/io_std/milkyway $lib_dir/sram/milkyway $lib_dir/pll/milkyway  ]
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/milkyway
+set sub_mwlib_type "saed32nm_?vt_* SRAM32NM saed32io_wb_* SAED32_PLL_FR*"
+saed32nm_?vt_* SRAM32NM saed32io_wb_* SAED32_PLL_FR*
+#set topdir /u/$env(USER)/PSU_RTL2GDS
+set topdir [ lindex [ regexp -inline "(.*)\(syn\|pt\|apr\)" [pwd] ] 1 ]
+/u/sigicher/ECE-530-2024/a/
+set FCL 0
+0
+set split_constraints 0
+0
+Warning: No designs to list. (UID-275)
+== ANALYZE autoread all files ==
+
+Starting ANALYZE autoread mode...
+Warning: Defining design library 'WORK' at directory '/u/sigicher/ECE-530-2024/a/syn/work/WORK_autoread'. (AUTOREAD-107)
+Information: Adding '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc.sv'.  (AUTOREAD-100)
+Information: Adding '/u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_define.sv'.  (AUTOREAD-100)
+Warning: Adding missing directory to search_path - '/u/sigicher/ECE-530-2024/a/syn/rtl'. (AUTOREAD-105)
+Information: Scanning file { mesi_isc.sv }. (AUTOREAD-303)
+Compiling source file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc.sv
+Opening include file /u/sigicher/ECE-530-2024/a/syn/rtl/mesi_isc_define.sv
+Presto compilation completed successfully.
+Autoread command completed successfully.
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db'
+Loading db file '/pkgs/synopsys/2020/design_compiler/syn/Q-2019.12-SP3/libraries/syn/dw_foundation.sldb'
+Loading db file '/pkgs/synopsys/2016/dft_compiler/libraries/syn/gtech.db'
+Loading db file '/pkgs/synopsys/2016/dft_compiler/libraries/syn/standard.sldb'
+  Loading link library 'saed32rvt_ss0p95v125c'
+  Loading link library 'saed32hvt_ss0p95v125c'
+  Loading link library 'saed32io_wb_ss0p95v125c_2p25v'
+  Loading link library 'saed32sram_ss0p95v125c'
+  Loading link library 'saed32pll_ss0p95v125c_2p25v'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'mesi_isc'.
+Information: Building the design 'mesi_isc_broad' instantiated from design 'mesi_isc' with
+        the parameters "3,32,2,5,4,2". (HDL-193)
+Warning: Cannot find the design 'mesi_isc_broad' in the library 'WORK'. (LBR-1)
+Information: Building the design 'mesi_isc_breq_fifos' instantiated from design 'mesi_isc' with
+        the parameters "3,32,2,5,2,1". (HDL-193)
+Warning: Cannot find the design 'mesi_isc_breq_fifos' in the library 'WORK'. (LBR-1)
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+#####################################################
+proc insert_io { port side} {
+  set this_io io_${side}_${port}
+  if {  $side == "t"   } {
+   if { [get_attribute [get_ports $port ] direction ] == "in" } {
+    create_cell $this_io saed32io_wb_ss0p95v125c_2p25v/I1025_NS
+   } else {
+    create_cell $this_io saed32io_wb_ss0p95v125c_2p25v/D8I1025_NS
+   }
+  }
+  if { $side == "b"  } {
+   if { [get_attribute [get_ports $port ] direction ] == "in" } {
+    create_cell $this_io saed32io_wb_ss0p95v125c_2p25v/I1025_NS
+   } else {
+    create_cell $this_io saed32io_wb_ss0p95v125c_2p25v/D8I1025_NS
+   }
+  }
+  if {  $side == "r"  } {
+   if { [get_attribute [get_ports $port ] direction ] == "in" } {
+    create_cell $this_io saed32io_wb_ss0p95v125c_2p25v/I1025_NS
+   } else {
+    create_cell $this_io saed32io_wb_ss0p95v125c_2p25v/D8I1025_NS
+   }
+  }
+  if { $side == "l"  } {
+   if { [get_attribute [get_ports $port ] direction ] == "in" } {
+    create_cell $this_io saed32io_wb_ss0p95v125c_2p25v/I1025_NS
+   } else {
+    create_cell $this_io saed32io_wb_ss0p95v125c_2p25v/D8I1025_NS
+   }
+  }
+  set pins [ get_pins -of_obj [ get_net $port ] ]
+  foreach_in i $pins { disconnect_net [get_net $port ] $i }
+  set port_net [get_nets -quiet $port ]
+
+  # If only a port is created, the related net is not created and connected to the port.  Do that here.
+  if { [sizeof_collection $port_net ] == 0 } { 
+      create_net $port 
+      connect_net $port [get_ports $port ]
+  }
+
+  connect_net [get_net $port ]  $this_io/PADIO
+  create_net ${this_io}_net
+  foreach_in i $pins { connect_net ${this_io}_net $i }
+  #DIN is input to IO_PAD
+  #DOUT is output of IO_PAD
+  #EN is the IO_PAD enable to output
+  if { [get_attribute [get_ports $port ] direction ] == "in" } {
+     #connect_net [get_nets  *Logic0* ] ${this_io}/EN 
+     connect_net [get_nets  *Logic1* ] ${this_io}/R_EN 
+     connect_net ${this_io}_net ${this_io}/DOUT
+  } else {
+     connect_net [get_nets  *Logic1* ] $this_io/EN 
+     #connect_net [get_nets  *Logic0* ] $this_io/R_EN 
+     connect_net ${this_io}_net $this_io/DIN
+  }
+}
+####################################################
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+## Generated SDC file "mesi_isc.out.sdc"
+## Copyright (C) 1991-2012 Altera Corporation
+## Your use of Altera Corporation's design tools, logic functions 
+## and other software and tools, and its AMPP partner logic 
+## functions, and any output files from any of the foregoing 
+## (including device programming or simulation files), and any 
+## associated documentation or information are expressly subject 
+## to the terms and conditions of the Altera Program License 
+## Subscription Agreement, Altera MegaCore Function License 
+## Agreement, or other applicable license agreement, including, 
+## without limitation, that your use is for the sole purpose of 
+## programming logic devices manufactured by Altera and sold by 
+## Altera or its authorized distributors.  Please refer to the 
+## applicable agreement for further details.
+## VENDOR  "Altera"
+## PROGRAM "Quartus II"
+## VERSION "Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Web Edition"
+## DATE    "Tue Nov  6 14:51:56 2012"
+##
+## DEVICE  "EP4CGX30CF23C6"
+##
+#**************************************************************
+# Time Information
+#**************************************************************
+#set_time_format -unit ns -decimal_places 3
+#**************************************************************
+# Create Clock
+#**************************************************************
+create_clock -name {clk} -period 1.000 -waveform { 0.000 0.500 } [get_ports {clk}]
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+#**************************************************************
+# Create Generated Clock
+#**************************************************************
+#**************************************************************
+# Set Clock Latency
+#**************************************************************
+#**************************************************************
+# Set Clock Uncertainty
+#**************************************************************
+set_clock_uncertainty -rise_from [get_clocks {clk}] -rise_to [get_clocks {clk}]  0.020  
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_clock_uncertainty -rise_from [get_clocks {clk}] -fall_to [get_clocks {clk}]  0.020  
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_clock_uncertainty -fall_from [get_clocks {clk}] -rise_to [get_clocks {clk}]  0.020  
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_clock_uncertainty -fall_from [get_clocks {clk}] -fall_to [get_clocks {clk}]  0.020  
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+#**************************************************************
+# Set Input Delay
+#**************************************************************
+set_input_delay -add_delay  -clock [get_clocks {clk}]  0.100 [get_ports {cbus_ack*}]
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_input_delay -add_delay  -clock [get_clocks {clk}]  0.100 [get_ports {mbus_addr*}]
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_input_delay -add_delay  -clock [get_clocks {clk}]  0.100 [get_ports {mbus_cmd*}]
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+#**************************************************************
+# Set Output Delay
+#**************************************************************
+set_output_delay -add_delay  -clock [get_clocks {clk}]  0.100 [get_ports {cbus_addr_o*}]
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_output_delay -add_delay  -clock [get_clocks {clk}]  0.100 [get_ports {cbus_cmd*}]
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_output_delay -add_delay  -clock [get_clocks {clk}]  0.100 [get_ports {mbus_ack*}]
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+#**************************************************************
+# Set Clock Groups
+#**************************************************************
+#**************************************************************
+# Set False Path
+#**************************************************************
+#**************************************************************
+# Set Multicycle Path
+#**************************************************************
+set_clock_latency 0.1 clk
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_clock_transition 0.1 clk
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_clock_uncertainty 0.070 clk
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_input_delay 0.25 -clock clk [all_inputs] 
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_output_delay 0.25 -clock clk [all_outputs]
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_drive 0.00001 [all_inputs ]
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_load 0.1 [all_outputs ]
+1
+#**************************************************************
+# Set Maximum Delay
+#**************************************************************
+#**************************************************************
+# Set Minimum Delay
+#**************************************************************
+#**************************************************************
+# Set Input Transition
+#**************************************************************
+Current design is 'mesi_isc'.
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Information: Performing power optimization. (PWR-850)
+Analyzing: "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.db"
+Library analysis succeeded.
+Information: Choosing a test methodology will restrict the optimization of sequential cells. (UIO-12)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | L-2016.03-DWBB_201603.3 |     *     |
+| Licensed DW Building Blocks        | Q-2019.12-DWBB_201912.3 |     *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+
+Information: There are 146 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+  Simplifying Design 'mesi_isc'
+
+Information: Building the design 'mesi_isc_broad' instantiated from design 'mesi_isc' with
+        the parameters "3,32,2,5,4,2". (HDL-193)
+Warning: Cannot find the design 'mesi_isc_broad' in the library 'WORK'. (LBR-1)
+Information: Building the design 'mesi_isc_breq_fifos' instantiated from design 'mesi_isc' with
+        the parameters "3,32,2,5,2,1". (HDL-193)
+Warning: Cannot find the design 'mesi_isc_breq_fifos' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'mesi_isc_broad' in 'mesi_isc'. (LINK-5)
+Warning: Unable to resolve reference 'mesi_isc_breq_fifos' in 'mesi_isc'. (LINK-5)
+Loaded alib file './alib-52/saed32rvt_ss0p95v125c.db.alib'
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'mesi_isc'
+Information: Building the design 'mesi_isc_broad' instantiated from design 'mesi_isc' with
+        the parameters "3,32,2,5,4,2". (HDL-193)
+Warning: Cannot find the design 'mesi_isc_broad' in the library 'WORK'. (LBR-1)
+Information: Building the design 'mesi_isc_breq_fifos' instantiated from design 'mesi_isc' with
+        the parameters "3,32,2,5,2,1". (HDL-193)
+Warning: Cannot find the design 'mesi_isc_breq_fifos' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'mesi_isc_broad' in 'mesi_isc'. (LINK-5)
+Warning: Unable to resolve reference 'mesi_isc_breq_fifos' in 'mesi_isc'. (LINK-5)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The library cell 'PMT3_RVT' in the library 'saed32rvt_ss0p95v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT2_RVT' in the library 'saed32rvt_ss0p95v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT1_RVT' in the library 'saed32rvt_ss0p95v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT3_RVT' in the library 'saed32rvt_ss0p95v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT2_RVT' in the library 'saed32rvt_ss0p95v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT1_RVT' in the library 'saed32rvt_ss0p95v125c' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+Information: Automatic shift-register identification is enabled for scan. Not all registers will be scan-replaced. (OPT-467)
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 0.00%
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 0.00%
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 0.00%
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 0.00%
+
+  Beginning Isolate Ports
+  -----------------------
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 0.00%
+
+  Beginning Delay Optimization
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 0.00%
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+    0:00:02       0.0      0.00       0.0       0.0                              0.0000
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: Building the design 'mesi_isc_broad' instantiated from design 'mesi_isc' with
+        the parameters "3,32,2,5,4,2". (HDL-193)
+Warning: Cannot find the design 'mesi_isc_broad' in the library 'WORK'. (LBR-1)
+Information: Building the design 'mesi_isc_breq_fifos' instantiated from design 'mesi_isc' with
+        the parameters "3,32,2,5,2,1". (HDL-193)
+Warning: Cannot find the design 'mesi_isc_breq_fifos' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'mesi_isc_broad' in 'mesi_isc'. (LINK-5)
+Warning: Unable to resolve reference 'mesi_isc_breq_fifos' in 'mesi_isc'. (LINK-5)
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated black box outputs. (PWR-428)
+Information: Building the design 'mesi_isc_broad' instantiated from design 'mesi_isc' with
+        the parameters "3,32,2,5,4,2". (HDL-193)
+Warning: Cannot find the design 'mesi_isc_broad' in the library 'WORK'. (LBR-1)
+Information: Building the design 'mesi_isc_breq_fifos' instantiated from design 'mesi_isc' with
+        the parameters "3,32,2,5,2,1". (HDL-193)
+Warning: Cannot find the design 'mesi_isc_breq_fifos' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'mesi_isc_broad' in 'mesi_isc'. (LINK-5)
+Warning: Unable to resolve reference 'mesi_isc_breq_fifos' in 'mesi_isc'. (LINK-5)
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Writing verilog file '/u/sigicher/ECE-530-2024/a/syn/outputs/mesi_isc.dc.vg'.
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Writing ddc file '../outputs/mesi_isc.dc.ddc'.
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+dc_shell> 
+dc_shell> report_timing
+Warning: Design 'mesi_isc' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : mesi_isc
+Version: L-2016.03-SP3
+Date   : Wed Dec  4 02:12:12 2024
+****************************************
+
+Operating Conditions: ss0p95v125c   Library: saed32rvt_ss0p95v125c
+Wire Load Model Mode: enclosed
+
+  Startpoint: mesi_isc_broad/cbus_addr_o[31] (internal pin)
+  Endpoint: cbus_addr_o[31]
+            (output port clocked by clk)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mesi_isc           ForQA                 saed32rvt_ss0p95v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  mesi_isc_broad/cbus_addr_o[31] (mesi_isc_broad)         0.00       0.00 r
+  cbus_addr_o[31] (out)                                   0.00       0.00 r
+  data arrival time                                                  0.00
+  --------------------------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+dc_shell> 
+
+Thank you...
