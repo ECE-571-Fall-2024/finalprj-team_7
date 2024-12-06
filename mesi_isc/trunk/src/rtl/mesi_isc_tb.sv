@@ -1,5 +1,5 @@
-`include "../rtl/mesi_isc_define.sv"
-`include "../tb/mesi_isc_tb_define.sv"
+`include "../src/rtl/mesi_isc_define.sv"
+`include "../src/tb/mesi_isc_tb_define.sv"
 module mesi_isc_tb;
 
 parameter CBUS_CMD_WIDTH = 3;
